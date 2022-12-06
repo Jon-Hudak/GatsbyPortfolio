@@ -1,0 +1,61 @@
+@font-face {
+  font-family: "Digital";
+  src: url("//db.onlinewebfonts.com/t/8e22783d707ad140bffe18b2a3812529.eot?#iefix")
+      format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/8e22783d707ad140bffe18b2a3812529.woff2")
+      format("woff2"),
+    url("//db.onlinewebfonts.com/t/8e22783d707ad140bffe18b2a3812529.woff")
+      format("woff");
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  background: rgb(53, 53, 56);
+  background: linear-gradient(
+    13deg,
+    rgba(53, 53, 56, 1) 0%,
+    rgba(99, 138, 128, 1) 71%,
+    rgba(0, 78, 94, 1) 100%
+  );
+}
+
+.App {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  flex-direction: column;
+
+  align-items: center;
+}
+#calculator {
+  display: flex;
+  flex-direction: column;
+  border: solid .5rem;
+  border-color: black;
+  padding: 0 15rem;
+  max-height: 100vh;
+}
+
+#equals {
+  height: 200%;
+}
+
+.btn {
+  border-color: black;
+  flex-grow: 1;
+  font-size: 2.5rem;
+  height: 100%;
+}
+#btnCont {
+  height: 100%;
+}
+#display,
+#answer {
+  text-align: right;
+  font-family: "Digital";
+  background-color: black;
+  font-size: 4rem;
+}
