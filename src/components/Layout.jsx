@@ -1,16 +1,16 @@
 import React from "react"
 import Navbar from "./Navbar"
 
-function Layout({ children, background }) {
+function Layout({ children, background, className }) {
   return (
-    <div className={`flex flex-col h-screen layout ${background}`}>
-      <div className="flex-1 grow">
-        <Navbar />
-        <div className="content">{children}</div>
+    <div className={`flex flex-col layout ${background}`}>
+      <Navbar /><div className="flex-1 grow">
+        
+        <div className={className}>{children}</div>
       </div>
 
-      <footer className="">
-        <p className="text-right px-4">Copyright 2022 Jon Hudak Development</p>
+      <footer className="h-20 flex flex-col border-t-2 border-gray-600 bg-black mt-3">
+        <p className="text-right mt-auto px-4">Copyright 2022 Jon Hudak Development</p>
       </footer>
     </div>
   )

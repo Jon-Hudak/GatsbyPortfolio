@@ -2,6 +2,8 @@ import { Link } from "gatsby"
 import React, { useState } from "react"
 import { graphql } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
+import { AnchorLink } from "gatsby-plugin-anchor-links";
+
 
 function Navbar() {
   const logo = "../images/logo-no-background.png"
@@ -9,12 +11,13 @@ function Navbar() {
   const [hamburgerOpen, setHamburgerOpen] = useState(false)
 
   const handleHamburger = () => {
-    setHamburgerOpen(!hamburgerOpen)
-    console.log("yes")
+    setHamburgerOpen(!hamburgerOpen);
+    
   }
 
   return (
-    <nav className="px-3 sm:px-10 py-3 sm:h-32 bg-black text-white flex justify-between items-center sticky top-0 w-screen">
+    <nav className="sticky top-0 z-50">
+    <div className="px-5  py-3 sm:h-32 bg-black text-white flex justify-between items-center ">
       <Link to="/"><StaticImage
         className="w-56 hidden sm:inline-block"
         src={logo}
@@ -29,9 +32,9 @@ function Navbar() {
       {/* <h1 className="text-4xl font-semibold"></h1> */}
 
       <div className="hidden sm:flex sm:w-1/3 sm:justify-between sm:text-xl">
-        <Link to="/">Home</Link>
-        <Link to="#about">About</Link>
-        <Link to="/projects">Projects</Link>
+        <Link className="transition duration-200 hover:text-yellow-600" to="/">Home</Link>
+        <AnchorLink className="transition duration-200 hover:text-yellow-600" to="/#about">About</AnchorLink>
+        <AnchorLink className="transition duration-200 hover:text-yellow-600" to="/#projects">Projects</AnchorLink>
       </div>
       <button
         className={hamburgerOpen ? "menu opened relative sm:hidden" : "menu sm:hidden"}
@@ -49,7 +52,14 @@ function Navbar() {
             d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942"
           />
         </svg>
+        
       </button>
+      
+    </div>
+    {<div onClick={()=>{setHamburgerOpen(false)}} className={`sm:hidden  w-screen h-screen divide-y divide-gray-700 flex-col absolute right-0 text-right text-5xl bg-black bg-opacity-90 border border-gray-700 ${hamburgerOpen?"flex origin-top animate-menuOpen":"hidden origin-top animate-menuClose"}`}>
+        <Link className="py-3 px-5 transition delay-100 hover:bg-gray-800" to="/">Home</Link>
+        <AnchorLink className="py-3 px-5 transition delay-100 hover:bg-gray-800" to="/#about">About</AnchorLink>
+        <AnchorLink  className="py-3 px-5 transition delay-100 hover:bg-gray-800" to="/#projects">Projects</AnchorLink></div>}
     </nav>
   )
 }

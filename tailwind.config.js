@@ -5,7 +5,19 @@ module.exports = {
     "./src/components/**/*.{js,jsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      keyframes: {
+        menuAnim: {
+          '0%': { transform: 'scaleY(0%)' },
+          '80%': {transform: 'scaleY(110%)' },
+          '100%': { transform: 'scaleY(100%)' },
+        },
+      },
+      animation: {
+        'menuOpen': 'menuAnim 0.3s ease-in-out forwards',
+        
+      },
+    },
   },
   plugins: [],
 }
