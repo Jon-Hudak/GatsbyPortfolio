@@ -6,7 +6,7 @@ import phoneSVG from "../../images/phone.svg"
 
 function InfoSec() {
   return (
-    <section id="about" className="mt-5 mx-5 grid grid-cols-1 lg:grid-cols-3 lg:gap-10 xl:gap-15 ">
+    <section id="about" className="mt-5 grid grid-cols-1 max-w-6xl lg:grid-cols-3 lg:gap-10 xl:gap-15 ">
       <InfoCard title="Mobile-Friendly">
         <img className="w-20 mx-auto shadow-lg" src={phoneSVG} />
         59.6% of website traffic comes from mobile devices. 92.1% of people

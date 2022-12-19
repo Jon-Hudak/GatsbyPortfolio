@@ -39,7 +39,7 @@ export default function ProjectsSec({  }) {
   
 console.log(data);
   return (
-    <section id="projects" className="mt-5 w-7xl mx-5 px-5 py-3 bg-black bg-opacity-40 max-w-5xl rounded-lg place-self-center border border-orange-400">
+    <section id="projects" className="mt-5 w-7xl px-5 py-3 bg-black bg-opacity-40 max-w-5xl rounded-lg place-self-center border border-orange-400 shadow-xl">
       
       <h2 className="text-3xl mt-3 text-red-600 font-bold text-center md:text-4xl md:text-left">
         Here's some things I've worked on

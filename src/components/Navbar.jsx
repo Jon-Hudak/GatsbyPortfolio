@@ -19,19 +19,19 @@ function Navbar() {
     <nav className="sticky top-0 z-50">
     <div className="px-5  py-3 sm:h-32 bg-black text-white flex justify-between items-center ">
       <Link to="/"><StaticImage
-        className="w-56 hidden sm:inline-block"
+        className="w-56 hidden sm:inline-block transition duration-100 hover:grayscale hover:contrast-0 "
         src={logo}
         alt="Site Logo"
       />
       <StaticImage
-        className="w-16 sm:hidden"
+        className="w-16 sm:hidden transition duration-100 hover:grayscale hover:contrast-0"
         src={smallLogo}
         alt="Small Site Logo"
       />
       </Link>
       {/* <h1 className="text-4xl font-semibold"></h1> */}
 
-      <div className="hidden sm:flex sm:w-1/3 sm:justify-between sm:text-xl">
+      <div className="hidden sm:flex sm:w-1/2 md:w-1/3 lg:w-1/4 sm:justify-between sm:text-xl">
         <Link className="transition duration-200 hover:text-yellow-600" to="/">Home</Link>
         <AnchorLink className="transition duration-200 hover:text-yellow-600" to="/#about">About</AnchorLink>
         <AnchorLink className="transition duration-200 hover:text-yellow-600" to="/#projects">Projects</AnchorLink>
@@ -57,9 +57,9 @@ function Navbar() {
       
     </div>
     {<div onClick={()=>{setHamburgerOpen(false)}} className={`sm:hidden  w-screen h-screen divide-y divide-gray-700 flex-col absolute right-0 text-right text-5xl bg-black bg-opacity-90 border border-gray-700 ${hamburgerOpen?"flex origin-top animate-menuOpen":"hidden origin-top animate-menuClose"}`}>
-        <Link className="py-3 px-5 transition delay-100 hover:bg-gray-800" to="/">Home</Link>
-        <AnchorLink className="py-3 px-5 transition delay-100 hover:bg-gray-800" to="/#about">About</AnchorLink>
-        <AnchorLink  className="py-3 px-5 transition delay-100 hover:bg-gray-800" to="/#projects">Projects</AnchorLink></div>}
+        <Link className="py-3 px-5 transition duration-100 hover:bg-gray-800" to="/">Home</Link>
+        <AnchorLink className="py-3 px-5 transition duration-100 hover:bg-gray-800" to="/#about">About</AnchorLink>
+        <AnchorLink  className="py-3 px-5 transition duration-100 hover:bg-gray-800" to="/#projects">Projects</AnchorLink></div>}
     </nav>
   )
 }

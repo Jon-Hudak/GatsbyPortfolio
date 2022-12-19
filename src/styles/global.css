@@ -36,3 +36,11 @@
   }
 
 @tailwind utilities;
+@layer components{
+  .inputField{
+    @apply text-black px-3 py-2 text-xl w-full bg-orange-50 focus:bg-orange-200 border-2 border-yellow-500 outline-double outline-4 outline-gray-700 rounded-2xl
+  }
+  .formLabel{
+    @apply text-2xl py-2
+  }
+}
