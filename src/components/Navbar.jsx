@@ -1,6 +1,5 @@
 import { Link } from "gatsby"
 import React, { useState } from "react"
-import { graphql } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import { AnchorLink } from "gatsby-plugin-anchor-links";
 
@@ -14,9 +13,15 @@ function Navbar() {
     setHamburgerOpen(!hamburgerOpen);
     
   }
+  const handleKeyDown = (e)=>{
+    if (e.key=="escape"){
+      handleHamburger();
+    }
+
+  }
 
   return (
-    <nav className="sticky top-0 z-50">
+    <nav className="sticky top-0 z-50" onKeyDown={handleKeyDown}>
     <div className="px-5  py-3 sm:h-32 bg-black text-white flex justify-between items-center ">
       <Link to="/"><StaticImage
         className="w-56 hidden sm:inline-block transition duration-100 hover:grayscale hover:contrast-0 "
@@ -39,6 +44,7 @@ function Navbar() {
       <button
         className={hamburgerOpen ? "menu opened relative sm:hidden" : "menu sm:hidden"}
         onClick={handleHamburger}
+        onKeyDown={handleHamburger}
         aria-label="Main Menu"
       >
         <svg width="64" height="64" viewBox="0 0 100 100">

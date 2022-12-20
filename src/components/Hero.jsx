@@ -31,7 +31,7 @@ function Hero() {
 
           <img
             className="h-48 w-48 object-cover object-top rounded-full shrink-0 transition duration-200 hover:grayscale border-2 border-orange-400 shadow-xl"
-            alt="Animated picture of me with a glitch effect"
+            alt="Me with a glitch effect"
             src={heroPic}
           />
         </div>
