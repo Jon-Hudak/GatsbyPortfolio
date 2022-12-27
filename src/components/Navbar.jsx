@@ -6,7 +6,7 @@ import { AnchorLink } from "gatsby-plugin-anchor-links";
 
 function Navbar() {
   const logo = "../images/logo-no-background.svg"
-  const smallLogo = "../images/logo-only.png"
+  //const smallLogo = "../images/logo-only.png"
   const [hamburgerOpen, setHamburgerOpen] = useState(false)
 
   const handleHamburger = () => {
