@@ -86,7 +86,8 @@ export default function ContactSec({ popup }) {
           Contact me
         </h2>
       )}
-      <form className="flex flex-col w-full px-16 my-5" onSubmit={handleSubmit}>
+      <form name="Contact" className="flex flex-col w-full px-16 my-5" onSubmit={handleSubmit} data-netlify="true">
+      <input type="hidden" name="Contact" value="Contact" />
         <label htmlFor="name" className="formLabel">
           Name:
         </label>
