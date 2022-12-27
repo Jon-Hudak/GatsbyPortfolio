@@ -10,9 +10,7 @@ export default function ContactSec({ popup }) {
     message: "",
     nameValid: "",
     emailValid: "",
-    companyValid: "",
-    phoneValid: "",
-    formErrors: { name: "", email: "", company: "", phone: "" },
+    formErrors: { name: "", email: ""},
     formValid: false,
   })
 
@@ -23,8 +21,8 @@ export default function ContactSec({ popup }) {
     })
   }
   const handleSubmit = e => {
-    
-    if ( formValidation()){
+    formValidation()
+    if (nameValid && emailValid){
       fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
