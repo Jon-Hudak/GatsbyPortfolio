@@ -23,8 +23,19 @@ export default function ContactSec({ popup }) {
     })
   }
   const handleSubmit = e => {
-    formValidation()
-    e.preventDefault()
+    
+    if ( formValidation()){
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({ "form-name": "contact", [formState.name, formState.email, formState.message] })
+      })
+        .then(() => alert("Success!"))
+        .catch(error => alert(error));
+
+      
+    }
+    e.preventDefault();
   }
 
   const formValidation = () => {
@@ -86,8 +97,8 @@ export default function ContactSec({ popup }) {
           Contact me
         </h2>
       )}
-      <form name="Contact" className="flex flex-col w-full px-16 my-5" onSubmit={handleSubmit} data-netlify="true">
-      <input type="hidden" name="Contact" value="Contact" />
+      <form name="Contact" className="flex flex-col w-full px-16 my-5" method="post" onSubmit={handleSubmit} netlify>
+      <input type="hidden" name="form-name" value="Contact" />
         <label htmlFor="name" className="formLabel">
           Name:
         </label>
