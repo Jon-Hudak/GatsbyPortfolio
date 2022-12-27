@@ -23,16 +23,16 @@ function Navbar() {
   return (
     <nav className="sticky top-0 z-50" onKeyDown={handleKeyDown}>
     <div className="px-5  py-3 sm:h-32 bg-black text-white flex justify-between items-center ">
-      <Link to="/"><StaticImage
-        className="w-56 hidden sm:inline-block transition duration-100 hover:grayscale hover:contrast-0 "
+      <Link to="/">
+       <StaticImage className="w-56 transition duration-100 hover:grayscale hover:contrast-0 "
         src={logo}
         alt="Site Logo"
       />
-      <StaticImage
+      {/* <StaticImage
         className="w-16 sm:hidden transition duration-100 hover:grayscale hover:contrast-0"
         src={smallLogo}
         alt="Small Site Logo"
-      />
+      /> */}
       </Link>
       {/* <h1 className="text-4xl font-semibold"></h1> */}
 
