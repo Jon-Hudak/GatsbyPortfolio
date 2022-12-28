@@ -22,7 +22,7 @@ function Navbar() {
 
   return (
     <nav className="sticky top-0 z-50" onKeyDown={handleKeyDown}>
-    <div className="px-5  py-3 sm:h-32 bg-black text-white flex justify-between items-center ">
+    <div className="px-5 py-3 sm:h-32 bg-black text-white flex justify-between items-center ">
       <Link to="/">
        <StaticImage className="w-56 transition duration-100 hover:grayscale hover:contrast-0 "
         src={logo}
@@ -36,7 +36,7 @@ function Navbar() {
       </Link>
       {/* <h1 className="text-4xl font-semibold"></h1> */}
 
-      <div className="hidden sm:flex sm:w-1/2 md:w-1/3 lg:w-1/4 sm:justify-between sm:text-xl">
+      <div className="hidden sm:flex sm:w-72 sm:justify-between sm:text-xl">
         <Link className="transition duration-200 hover:text-yellow-600" to="/">Home</Link>
         <AnchorLink className="transition duration-200 hover:text-yellow-600" to="/#about">About</AnchorLink>
         <AnchorLink className="transition duration-200 hover:text-yellow-600" to="/#projects">Projects</AnchorLink>
