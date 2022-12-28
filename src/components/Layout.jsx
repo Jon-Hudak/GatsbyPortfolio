@@ -10,7 +10,7 @@ function Layout({ children, background, className }) {
       </div>
 
       <footer className="h-20 flex flex-col border-t-2 border-gray-600 bg-black mt-3">
-        <p className="text-right mt-auto px-4">Copyright 2022 Jon Hudak Development</p>
+        <p className="text-right mt-auto px-3 py-3 text-white">Copyright 2022 Jon Hudak Development</p>
       </footer>
     </div>
   )

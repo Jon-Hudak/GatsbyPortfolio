@@ -8,7 +8,7 @@ function Calculator() {
   const [answer, setAnswer] = useState("0")
 
   return (
-    <Layout background="bg-gradient-to-r from-gray-800 to-green-300 h-screen">
+    <Layout background="bg-gradient-to-r from-gray-800 to-green-300 min-h-screen">
       <div className="mt-5 flex place-content-center sm:mt-20">
         <div
           id="calculatorApp"
