@@ -9,10 +9,10 @@ function Calculator() {
 
   return (
     <Layout background="bg-gradient-to-r from-gray-800 to-green-300 h-screen">
-      <body className="mt-5 flex place-content-center sm:mt-20">
+      <div className="mt-5 flex place-content-center sm:mt-20">
         <div
           id="calculatorApp"
-          className="w-80 border-2 border-gray-500"
+          className="w-80 border-2 border-gray-500 "
         >
           <div className="w-full font-mono bg-black py-4 text-right">
             <Display display={display} answer={answer} />
@@ -29,7 +29,7 @@ function Calculator() {
             />
           </div>
         </div>
-      </body>
+      </div>
 
     </Layout>
   )

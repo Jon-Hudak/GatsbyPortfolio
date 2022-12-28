@@ -22,17 +22,17 @@ export default function ContactSec({ popup }) {
   }
   const handleSubmit = e => {
     formValidation()
-    if (nameValid && emailValid){
-      fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({ "form-name": "contact", ...formState })
-      })
-        .then(() => alert("Success!"))
-        .catch(error => alert(error));
+    // if (nameValid && emailValid){
+    //   fetch("/", {
+    //     method: "POST",
+    //     headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    //     body: encode({ "form-name": "contact", ...formState })
+    //   })
+    //     .then(() => alert("Success!"))
+    //     .catch(error => alert(error));
 
       
-    }
+    // }
     e.preventDefault();
   }
 
