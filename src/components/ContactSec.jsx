@@ -149,10 +149,12 @@ export default function ContactSec({ popup }) {
           id="message"
           name="message"
           type="text"
-          className="inputField"
+          className="inputField overflow-y-auto"
+          rows="6"  
           onChange={handleChange}
           value={formState.message}
           placeholder="Message"
+          
         />
         <button
           type="submit"
