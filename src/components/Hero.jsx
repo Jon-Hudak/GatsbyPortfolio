@@ -35,7 +35,6 @@ function Hero() {
             src={heroPic}
           />
         </div>
-        <div className="px-5 text-right">Based in Pittsburgh, PA</div>
         <div className="bg-black bg-opacity-50 mx-5 my-5 place-self-center">
           <div
             className={`place-content-center flex-col animate-menuOpen rounded-lg origin-top ${
