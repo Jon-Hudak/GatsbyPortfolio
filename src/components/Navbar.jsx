@@ -4,7 +4,7 @@ import { StaticImage } from "gatsby-plugin-image"
 import { AnchorLink } from "gatsby-plugin-anchor-links";
 
 
-function Navbar() {
+function Navbar(activeSection) {
   const logo = "../images/logo-no-background.svg"
   //const smallLogo = "../images/logo-only.png"
   const [hamburgerOpen, setHamburgerOpen] = useState(false)
@@ -37,9 +37,10 @@ function Navbar() {
       {/* <h1 className="text-4xl font-semibold"></h1> */}
 
       <div className="hidden sm:flex sm:w-72 sm:justify-between sm:text-xl">
-        <Link className="transition duration-200 hover:text-yellow-600" to="/">Home</Link>
+        
         <AnchorLink className="transition duration-200 hover:text-yellow-600" to="/#about">About</AnchorLink>
         <AnchorLink className="transition duration-200 hover:text-yellow-600" to="/#projects">Projects</AnchorLink>
+        <AnchorLink className="transition duration-200 hover:text-yellow-600" to="/#contactSection">Contact</AnchorLink>
       </div>
       <button
         className={hamburgerOpen ? "menu opened relative sm:hidden" : "menu sm:hidden"}

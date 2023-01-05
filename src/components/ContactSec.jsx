@@ -86,8 +86,9 @@ export default function ContactSec({ popup }) {
 
   return (
     <section
+      id={popup?"popupContact":"contactSection"}
       className={`px-5 py-3 w-full max-w-5xl rounded-lg place-self-center shadow-xl ${
-        popup ? "" : " mt-5 border border-orange-400 bg-black bg-opacity-40"
+        popup ? "" : "mt-5 border border-orange-400 bg-black bg-opacity-40"
       }`}
     >
       {!popup && (

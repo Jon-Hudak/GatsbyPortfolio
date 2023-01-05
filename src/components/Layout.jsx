@@ -1,10 +1,11 @@
 import React from "react"
 import Navbar from "./Navbar"
 
-function Layout({ children, background, className }) {
+function Layout({ children, background, className, activeSection }) {
   return (
     <div className={`flex flex-col layout ${background}`}>
-      <Navbar /><div className="flex-1 grow">
+      <Navbar activeSection={activeSection}/>
+      <div className="flex-1 grow">
         
         <div className={className}>{children}</div>
       </div>

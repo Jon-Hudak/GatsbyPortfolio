@@ -1,25 +1,29 @@
 import React, { useState } from "react"
 import heroPic from "../images/GlitchCB.gif"
 import ContactSec from "./ContactSec"
+import { motion } from "framer-motion"
 
 function Hero() {
   const [contactOpen, setContactOpen] = useState(false)
   const handleContact = () => {
     setContactOpen(!contactOpen)
-    console.log(contactOpen)
   }
   return (
-    <section className="flex flex-col place-items-center">
-      <div className="border border-orange-400 rounded-lg shadow-xl bg-black bg-opacity-50">
+    <section id="hero" className="flex flex-col place-items-center mt-5">
+      <div className="border border-orange-400 rounded-lg shadow-xl bg-black bg-opacity-50 ">
         <div className={`flex flex-col-reverse lg:flex-row w-full grow  px-2 sm:px-24 sm:mt-6 max-w-5xl justify-between   content-center rounded-md items-center ${contactOpen?"pt-10 sm:pt-20":"py-10 sm:py-20"}`}>
           <div className="px-10 max-w-lg">
-            <h1 className="mt-5 text-5xl text-center lg:text-left  text-red-700">
+            <motion.h1 className="mt-5 text-5xl text-center lg:text-left  text-red-700"
+             drag
+             >
               Freelance Web Developer
-            </h1>
-            <h2 className="mt-5 text-2xl text-center lg:text-left">
+            </motion.h1>
+            <motion.h2 className="mt-5 text-2xl text-center lg:text-left"
+             drag
+             >
               Convert more customers with an expert focus on user experience and
               SEO!
-            </h2>
+            </motion.h2>
 
             <button
               onClick={handleContact}
@@ -29,10 +33,13 @@ function Hero() {
             </button>
           </div>
 
-          <img
-            className="h-48 w-48 object-cover object-top rounded-full shrink-0 transition duration-200 hover:grayscale border-2 border-orange-400 shadow-xl"
+          <motion.img
+            className="z-20 h-48 w-48 lg:h-64 lg:w-64 object-cover object-top rounded-full shrink-0 transition duration-200 hover:grayscale border-2 border-orange-400 shadow-xl"
             alt="Me with a glitch effect"
             src={heroPic}
+            drag
+            
+            
           />
         </div>
         <div className="bg-black bg-opacity-50 mx-5 my-5 place-self-center">

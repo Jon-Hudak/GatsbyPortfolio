@@ -1,8 +1,22 @@
 import { StaticImage, GatsbyImage, getImage } from "gatsby-plugin-image"
-import React from "react"
+import React, { useEffect, useRef } from "react"
 import { graphql, useStaticQuery } from "gatsby"
+import { useInView } from "framer-motion";
 
-export default function TestimonialSec({  }) {
+export default function TestimonialSec({ activeSection, setActiveSection }) {
+  const sectionRef=useRef(null);
+  
+  const isInView = useInView (sectionRef, { margin:"0px 0px -80% 0px", amount:"some"})
+
+  useEffect(()=>{
+    if(isInView){
+    setActiveSection(sectionRef.current.id)
+    console.log();
+    }
+    
+  }, [isInView, activeSection])
+
+
   const data = useStaticQuery(graphql`
   query Testimonials {
     allFile(filter: {absolutePath: {regex: "/content/testimonials/"}, extension: {eq: "mdx"}}) {
@@ -29,11 +43,10 @@ export default function TestimonialSec({  }) {
   }
   `)
 
-  console.log(data)
 
   return (
     
-    <section className="mt-5  w-auto px-5 py-3 bg-black bg-opacity-40 max-w-5xl rounded-lg place-self-center border border-orange-400 shadow-xl">
+    <section ref={sectionRef} id="testimonials" className="mt-5  w-auto px-5 py-3 bg-black bg-opacity-40 max-w-5xl rounded-lg place-self-center border border-orange-400 shadow-xl ">
       
       <h2 className="text-3xl mt-3 text-red-600 font-bold text-center lg:text-4xl lg:text-left">Here's what others said!</h2>
 

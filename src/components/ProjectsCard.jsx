@@ -2,9 +2,9 @@ import { StaticImage, GatsbyImage, getImage } from "gatsby-plugin-image"
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 
-export default function ProjectsCard({ node, key}) {
+export default function ProjectsCard({ node}) {
   return (
-    <div className="my-5 py-5 md:px-5  w-auto mx-auto" key={node.childMdx.id}>
+    <div className="my-5 py-5 md:px-5  w-auto mx-auto" >
           <a className="p-5 hover:bg-black flex h-full flex-col rounded-md place-items-center w-72 transition duration-200 hover:bg-opacity-30 group border border-gray-700" href={node.childMdx.frontmatter.link}>
             <GatsbyImage
               className="w-64 h-72 rounded-sm shadow-lg transition duration-200 group-hover:grayscale group-hover:contrast-100"
