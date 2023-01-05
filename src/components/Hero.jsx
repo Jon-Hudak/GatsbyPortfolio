@@ -34,7 +34,7 @@ function Hero() {
           </div>
 
           <motion.img
-            className="z-20 h-48 w-48 lg:h-64 lg:w-64 object-cover object-top rounded-full shrink-0 transition duration-200 hover:grayscale border-2 border-orange-400 shadow-xl"
+            className="z-20 h-48 w-48 lg:h-64 lg:w-64 object-cover object-top rounded-full shrink-0 hover:grayscale border-2 border-orange-400 shadow-xl"
             alt="Me with a glitch effect"
             src={heroPic}
             drag
