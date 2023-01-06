@@ -13,17 +13,17 @@ function Hero() {
       <div className="border border-orange-400 rounded-lg shadow-xl bg-black bg-opacity-50 ">
         <div className={`flex flex-col-reverse lg:flex-row w-full grow  px-2 sm:px-24 sm:mt-6 max-w-5xl justify-between   content-center rounded-md items-center ${contactOpen?"pt-10 sm:pt-20":"py-10 sm:py-20"}`}>
           <div className="px-10 max-w-lg">
-            <motion.h1 className="mt-5 text-5xl text-center lg:text-left  text-red-700"
-             drag
+            <motion.h1 className="mt-5 text-5xl text-center lg:text-left  text-red-700 cursor-move"
+             drag dragSnapToOrigin  dragTransition={{ bounceStiffness: 1, bounceDamping: 3 }}
              >
               Freelance Web Developer
             </motion.h1>
-            <motion.h2 className="mt-5 text-2xl text-center lg:text-left"
-             drag
+            <h2 className="mt-5 text-2xl text-center lg:text-left"
+             
              >
               Convert more customers with an expert focus on user experience and
               SEO!
-            </motion.h2>
+            </h2>
 
             <button
               onClick={handleContact}
@@ -34,10 +34,10 @@ function Hero() {
           </div>
 
           <motion.img
-            className="z-20 h-48 w-48 lg:h-64 lg:w-64 object-cover object-top rounded-full shrink-0 hover:grayscale border-2 border-orange-400 shadow-xl"
+            className="z-20 h-48 w-48 lg:h-64 lg:w-64 object-cover object-top rounded-full shrink-0 hover:grayscale border-2 border-orange-400 shadow-xl cursor-move"
             alt="Me with a glitch effect"
             src={heroPic}
-            drag
+            drag dragSnapToOrigin  dragTransition={{ bounceStiffness: 1, bounceDamping: 3 }}
             
             
           />
