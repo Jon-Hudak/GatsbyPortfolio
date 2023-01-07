@@ -18,12 +18,12 @@ function Hero() {
              >
               Freelance Web Developer
             </motion.h1>
-            <h2 className="mt-5 text-2xl text-center lg:text-left"
-             
+            <motion.h2 className="mt-5 text-2xl text-center lg:text-left"
+             drag dragSnapToOrigin  dragTransition={{ bounceStiffness: 1, bounceDamping: 3 }}
              >
               Convert more customers with an expert focus on user experience and
               SEO!
-            </h2>
+            </motion.h2>
 
             <button
               onClick={handleContact}
