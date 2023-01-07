@@ -27,7 +27,7 @@ function Hero() {
 
             <motion.button
               onClick={handleContact}
-              className={`relative py-6 px-6 mt-10 w-full font-black text-lg sm:text-xl rounded-full shadow-lg border border-gray-400  text-gray-900 transition duration-500 hover:bg-yellow-700 hover:text-gray-300 active:bg-yellow-900 focus:outline-none focus:ring focus:ring-orange-500 ${contactOpen?"bg-yellow-700":"bg-yellow-400"}`}
+              className={`relative py-6 px-6 mt-10 w-full font-black text-lg sm:text-xl rounded-full shadow-lg border border-gray-400  text-gray-900 transition hover:bg-yellow-700 hover:text-gray-300 active:bg-yellow-900 focus:outline-none focus:ring focus:ring-orange-500 ${contactOpen?"bg-yellow-700":"bg-yellow-400"}`}
               drag dragSnapToOrigin  dragTransition={{ bounceStiffness: 1, bounceDamping: 3 }}
             >
               Get Your Free Consultation Now!
