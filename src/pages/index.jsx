@@ -13,10 +13,31 @@ export default function Home() {
   useEffect(() => {
   console.log(activeSection);
   }, [activeSection])
+
+  //  const [navbarChange, setNavbarChange] = useState(true);
+  // // useEffect(() => {
+  // //   console.log("Mounted")
+  // // }, [])
+  
+  //   const changeColor = () => {
+  //     let nav;
+  //     let scroll=window.scrollY;
+  //     if (scroll>=50) {
+  //       nav=true;
+  //     } else {
+  //       nav=false;
+  //     }
+  //     setNavbarChange(nav);
+  //     console.log(navbarChange,window.scrollY)
+  //   };
+  //   window.removeEventListener("scroll", changeColor);
+  //   window.addEventListener("scroll", changeColor);
+  
   
   
   return (
     <div className="bg-gray-800  text-white font-mono">
+      
       <Layout className="flex place-content-center" activeSection={activeSection}>
         <div className=" flex flex-col mx-5 max-w-7xl">
           

@@ -1,7 +1,7 @@
 import { StaticImage, GatsbyImage, getImage } from "gatsby-plugin-image"
 import React, { useEffect, useRef } from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import { useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 
 export default function TestimonialSec({ activeSection, setActiveSection }) {
   const sectionRef=useRef(null);
@@ -46,7 +46,12 @@ export default function TestimonialSec({ activeSection, setActiveSection }) {
 
   return (
     
-    <section ref={sectionRef} id="testimonials" className="mt-5  w-auto px-5 py-3 bg-black bg-opacity-40 max-w-5xl rounded-lg place-self-center border border-orange-400 shadow-xl ">
+    <motion.section ref={sectionRef} id="testimonials" className="mt-5  w-auto px-5 py-3 bg-black bg-opacity-40 max-w-5xl rounded-lg place-self-center border border-orange-400 shadow-xl "
+    initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin:"0px 0px -10% 0px" }}
+      transition={{ duration: 1}}
+    >
       
       <h2 className="text-3xl mt-3 text-red-600 font-bold text-center lg:text-4xl lg:text-left">Here's what others said!</h2>
 
@@ -67,6 +72,6 @@ export default function TestimonialSec({ activeSection, setActiveSection }) {
           <p className="px-10 lg:pr-0 mt-5 text-lg">{node.childMdx.body}</p>
         </div>
       ))} 
-    </section>
+    </motion.section>
   )
 }

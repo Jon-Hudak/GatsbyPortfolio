@@ -1,3 +1,4 @@
+import { motion } from "framer-motion"
 import React from "react"
 import { useState } from "react"
 
@@ -85,18 +86,22 @@ export default function ContactSec({ popup }) {
   }
 
   return (
-    <section
+    <motion.section
       id={popup?"popupContact":"contactSection"}
       className={`px-5 py-3 w-full max-w-5xl rounded-lg place-self-center shadow-xl ${
         popup ? "" : "mt-5 border border-orange-400 bg-black bg-opacity-40"
       }`}
+      initial={{ opacity:popup?1:0, y: popup?0:50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin:"0px 0px -10% 0px" }}
+      transition={{ duration: 1 }}
     >
       {!popup && (
         <h2 className="text-3xl mt-3px-5 text-red-600 font-bold text-center md:text-4xl md:text-left ">
           Contact me
         </h2>
       )}
-      <form name="Contact" className="flex flex-col w-full px-16 my-5" method="post" onSubmit={handleSubmit} netlify>
+      <form name="Contact" className="flex flex-col w-full md:px-10 my-5" method="post" onSubmit={handleSubmit} netlify>
       <input type="hidden" name="form-name" value="Contact" />
         <label htmlFor="name" className="formLabel">
           Name:
@@ -164,6 +169,6 @@ export default function ContactSec({ popup }) {
           Submit
         </button>
       </form>
-    </section>
+    </motion.section>
   )
 }

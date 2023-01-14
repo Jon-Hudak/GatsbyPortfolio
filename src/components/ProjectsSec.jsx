@@ -2,7 +2,7 @@ import { StaticImage, GatsbyImage, getImage } from "gatsby-plugin-image"
 import React, { useEffect, useRef } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import ProjectsCard from "./ProjectsCard";
-import { useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 
 
 
@@ -52,7 +52,12 @@ export default function ProjectsSec({ activeSection, setActiveSection }) {
   
 
   return (
-    <section ref={sectionRef} id="projects" className="mt-5 w-7xl px-5 py-3 bg-black bg-opacity-40 max-w-5xl rounded-lg place-self-center border border-orange-400 shadow-xl">
+    <motion.section ref={sectionRef} id="projects" className="mt-5 w-7xl px-5 py-3 bg-black bg-opacity-40 max-w-5xl rounded-lg place-self-center border border-orange-400 shadow-xl"
+    initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin:"0px 0px -10% 0px" }}
+      transition={{ duration: 1,}}
+    >
       
       <h2 className="text-3xl mt-3 text-red-600 font-bold text-center md:text-4xl md:text-left">
         Here's some things I've worked on
@@ -61,6 +66,6 @@ export default function ProjectsSec({ activeSection, setActiveSection }) {
         {data.allFile.edges.map(({ node }) => 
         <ProjectsCard node={node} key={node.childMdx.id}/>)}
       </div> 
-    </section>
+    </motion.section>
   )
 }

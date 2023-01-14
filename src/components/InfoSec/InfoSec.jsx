@@ -3,6 +3,7 @@ import InfoCard from "./InfoCard"
 import lightbulbSVG from "../../images/lightbulb.svg"
 import magnifySVG from "../../images/magnifyingGlass.svg"
 import phoneSVG from "../../images/phone.svg"
+import { motion } from "framer-motion"
 
 function InfoSec() {
   return (
@@ -15,7 +16,10 @@ function InfoSec() {
         with a mobile-first approach.
       </InfoCard>
       <InfoCard title="User Experience">
-        <img className="w-20 mx-auto shadow-lg" src={lightbulbSVG} alt=""/>
+        <img className="w-20 mx-auto shadow-lg" src={lightbulbSVG} alt="" 
+        initial={{pathLength:0, opacity:1}}
+        animate={{pathLength:1, opacity:1 }}
+        /> 
         If a product is confusing to use, then people don't want to use it, no
         matter how beatiful it is. This is where a focus on user-experience
         comes in to eliminate lost conversions due to people not knowing how to
