@@ -17,7 +17,7 @@ function Layout({ children, background, className }) {
     window.addEventListener("scroll", changeColor)
   }, [])
 
-  console.log(navbarChange, window.scrollY)
+ 
 
   return (
     <div className={`flex flex-col layout ${background}`}>
