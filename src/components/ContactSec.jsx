@@ -91,10 +91,10 @@ export default function ContactSec({ popup }) {
       className={`px-5 py-3 w-full max-w-5xl rounded-lg place-self-center shadow-xl ${
         popup ? "" : "mt-5 border border-orange-400 bg-black bg-opacity-40"
       }`}
-      initial={{ opacity:popup?1:0, y: popup?0:50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin:"0px 0px -10% 0px" }}
-      transition={{ duration: 1 }}
+      // initial={{ opacity:popup?1:0, y: popup?0:50 }}
+      // whileInView={{ opacity: 1, y: 0 }}
+      // viewport={{ once: true, margin:"0px 0px -10% 0px" }}
+      // transition={{ duration: 1 }}
     >
       {!popup && (
         <h2 className="text-3xl mt-3px-5 text-red-600 font-bold text-center md:text-4xl md:text-left ">
