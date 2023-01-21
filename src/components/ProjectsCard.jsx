@@ -6,7 +6,7 @@ import { motion } from "framer-motion"
 export default function ProjectsCard({ node }) {
   return (
     <motion.div
-      className="my-5 py-5 md:px-5  w-auto mx-auto"
+      className="my-5 md:px-5  w-auto mx-auto"
       initial={{ opacity: 0, x: 50 }}
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true, margin: "0px 0px -10% 0px" }}

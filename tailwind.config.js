@@ -6,6 +6,12 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        'dark-gray': '#191919',
+      },
+      screens:{
+        'tall' : {'raw':'(min-height:701px)'}
+      },
       keyframes: {
         menuAnim: {
           '0%': { transform: 'scaleY(0%)' },

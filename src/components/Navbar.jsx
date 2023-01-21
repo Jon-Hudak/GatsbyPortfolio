@@ -27,7 +27,7 @@ function Navbar( { navbarChange }) {
     <header className="fixed w-full top-0 z-50" onKeyDown={handleKeyDown}>
       <motion.nav
         className="px-5 py-3 sm:h-3r2 bg-black text-white flex justify-between items-center "
-        animate={{height: navbarChange?50:100, backgroundColor: navbarChange?"rgba(0, 0, 0, 1)":"rgba(0, 0, 0, 0.5)"}}
+        animate={{height: navbarChange?50:100, backgroundColor: navbarChange?"rgba(0, 0, 0, 1)":"rgba(0, 0, 0, 1)"}}
         transition={{duration:0.5}}
       >
         

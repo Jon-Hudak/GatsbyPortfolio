@@ -35,6 +35,10 @@
     stroke-width: 6;
   }
 
+  /* Multiplayer App */
+ 
+  
+
 @tailwind utilities;
 @layer components{
   .inputField{
@@ -43,4 +47,6 @@
   .formLabel{
     @apply text-2xl py-2
   }
+
+  
 }

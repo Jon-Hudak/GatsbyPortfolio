@@ -36,10 +36,10 @@ export default function Home() {
   
   
   return (
-    <div className="bg-gray-800  text-white font-mono">
+    <div className="text-white font-mono">
       
-      <Layout className="flex place-content-center" activeSection={activeSection}>
-        <div className=" flex flex-col mx-5 max-w-7xl">
+      <Layout className="flex place-content-center" activeSection={activeSection} background="bg-gray-800">
+        <div id="top" className=" flex flex-col mx-5 max-w-7xl">
           
           <Hero />
           <InfoSec />
