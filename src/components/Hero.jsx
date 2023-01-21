@@ -40,13 +40,13 @@ function Hero() {
       viewport={{ once: true, margin: "0px 0px -15% 0px" }}
       transition={{ duration: 0.5 }}
     >
-      <div className="border border-orange-400 rounded-lg shadow-xl bg-black/50 ">
+      <div className="py-5 border border-orange-400 rounded-lg shadow-xl bg-black/50 ">
         <div
           className={`flex flex-col-reverse lg:flex-row w-full grow  px-2 sm:px-24 sm:mt-6 max-w-5xl justify-between content-center rounded-md items-center `}
         >
           <div className="px-10 max-w-lg">
             <h1
-              className="mt-5 text-5xl h-36 text-center lg:text-left select-none text-white font-mono"
+              className="mt-5 text-4xl sm:text-5xl h-36 text-center lg:text-left select-none text-white font-mono"
               drag
               dragSnapToOrigin
               dragTransition={{ bounceStiffness: 1, bounceDamping: 3 }}
@@ -56,7 +56,7 @@ function Hero() {
               whileTap={"drag"}
             >
               <TypeAnimation
-              className="type after:absolute"
+              className="type after:absolute "
                 sequence={[
                   "Freelance Web Developer",
                   1000,
@@ -67,13 +67,13 @@ function Hero() {
                   "Freelance Coffee Drinker",
                   1000,
                   "Freelance Weeb",
-                  10,
+                  20,
                 ]}
                 repeat={Infinity}
               />
             </h1>
             <motion.p
-              className="text-white/60 font-sans mt-5 text-2xl text-center lg:text-left"
+              className="text-white/60 font-sans mt-5 text-xl sm:text-2xl text-center lg:text-left"
               drag
               dragSnapToOrigin
               dragTransition={{ bounceStiffness: 1, bounceDamping: 3 }}
@@ -89,7 +89,7 @@ function Hero() {
 
             <motion.button
               onClick={handleContact}
-              className={`relative py-6 px-6 mt-10 w-full font-black font-mono text-lg sm:text-xl rounded-2xl shadow-lg border border-gray-400 text-gray-900 hover:bg-yellow-700 hover:text-gray-300 active:bg-yellow-900 focus:outline-none focus:ring focus:ring-orange-500 ${
+              className={`relative py-6 px-6 mt-10 w-full font-black font-mono text-lg sm:text-2xl rounded-full shadow-lg border border-gray-400 text-gray-900 hover:bg-yellow-700 hover:text-gray-300 active:bg-yellow-900 focus:outline-none focus:ring focus:ring-orange-500 ${
                 contactOpen ? "bg-yellow-700" : "bg-yellow-400"
               }`}
               variants={variants}
@@ -98,7 +98,7 @@ function Hero() {
               whileInView={"shown"}
               viewport={{ once: true }}
             >
-              Get Your Free Consultation Now!
+              Get Your Free Consultation
             </motion.button>
           </div>
 
