@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import Navbar from "./Navbar"
 import { AnchorLink } from "gatsby-plugin-anchor-links"
 
-function Layout({ children, background, className }) {
+function Layout({ children, background, className, footerClass }) {
   const [navbarChange, setNavbarChange] = useState(false)
   const changeColor = () => {
     if (window.scrollY >= 10) {
@@ -32,7 +32,7 @@ function Layout({ children, background, className }) {
         <span className="m-auto text-4xl font-bold font-sans">^</span>
       </AnchorLink>
 
-      <footer className="h-20 flex flex-col border-t-2 border-gray-600 bg-black mt-3 z-50">
+      <footer className={`h-20 flex flex-col border-t-2 border-gray-600 bg-black mt-3 z-50 ${footerClass}`}>
         <p className="text-right mt-auto px-3 py-3 text-white">
           Copyright 2022 Jon Hudak Development
         </p>
