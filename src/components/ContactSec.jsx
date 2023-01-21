@@ -1,8 +1,12 @@
-import { motion } from "framer-motion"
+import { motion, useInView } from "framer-motion"
 import React from "react"
+import { useRef } from "react"
 import { useState } from "react"
+import { TypeAnimation } from "react-type-animation"
 
 export default function ContactSec({ popup }) {
+  const ref = useRef(null) 
+  const isInView = useInView(ref, {once:true})
   const [formState, setFormState] = useState({
     name: "",
     email: "",
@@ -97,9 +101,11 @@ export default function ContactSec({ popup }) {
       // transition={{ duration: 1 }}
     >
       {!popup && (
-        <h2 className="text-3xl mt-3px-5 text-red-600 font-bold text-center md:text-4xl md:text-left ">
-          Contact me
-        </h2>
+       
+        <h2 ref={ref}>
+        {isInView&& <TypeAnimation className="h2" sequence={["Contact Me"]} />}
+         </h2> 
+        
       )}
       <form name="Contact" className="flex flex-col w-full md:px-10 my-5" method="post" onSubmit={handleSubmit} netlify>
       <input type="hidden" name="form-name" value="Contact" />
