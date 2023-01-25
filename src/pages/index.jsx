@@ -19,7 +19,7 @@ export default function Home() {
   return (
     <main className="text-white font-sans">
       
-      <Layout className="flex place-content-center" activeSection={activeSection} background="bg-gray-800">
+      <Layout className="flex place-content-center" activeSection={activeSection} background="bg-neutral-700">
         <div id="top" className=" flex flex-col mx-5 max-w-7xl">
           
           <Hero />

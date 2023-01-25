@@ -17,31 +17,31 @@ export default function TestimonialSec({ activeSection, setActiveSection }) {
   }, [isInView, activeSection])
 
 
-  const data = useStaticQuery(graphql`
-  query Testimonials {
-    allFile(filter: {absolutePath: {regex: "/content/testimonials/"}, extension: {eq: "mdx"}}) {
-      edges {
-        node {
-          childMdx {
-            body
-            id
-            frontmatter {
-              date
-              image1 {
-                childImageSharp {
-                  gatsbyImageData(aspectRatio: 1, placeholder: BLURRED, width: 100)
-                }
-              }
-              imageAlt
-              name
-              title
-            }
-          }
-        }
-      }
-    },
-  }
-  `)
+  // const data = useStaticQuery(graphql`
+  // query Testimonials {
+  //   allFile(filter: {absolutePath: {regex: "/content/testimonials/"}, extension: {eq: "mdx"}}) {
+  //     edges {
+  //       node {
+  //         childMdx {
+  //           body
+  //           id
+  //           frontmatter {
+  //             date
+  //             image1 {
+  //               childImageSharp {
+  //                 gatsbyImageData(aspectRatio: 1, placeholder: BLURRED, width: 100)
+  //               }
+  //             }
+  //             imageAlt
+  //             name
+  //             title
+  //           }
+  //         }
+  //       }
+  //     }
+  //   },
+  // }
+  // `)
 
 
   return (
@@ -54,8 +54,8 @@ export default function TestimonialSec({ activeSection, setActiveSection }) {
     >
       
       <h2 className="text-3xl mt-3 text-red-600 font-bold text-center lg:text-4xl lg:text-left">Here's what others said!</h2>
-
-      {data.allFile.edges.map(({ node }) => (
+      
+      {/* {data.allFile.edges.map(({ node }) => (
         <div
           className="flex flex-col lg:flex-row place-items-center my-5 py-5 lg:px-5 border border-gray-700 rounded-md"
           key={node.childMdx.id}
@@ -71,7 +71,8 @@ export default function TestimonialSec({ activeSection, setActiveSection }) {
 
           <p className="px-10 lg:pr-0 mt-5 text-lg">{node.childMdx.body}</p>
         </div>
-      ))} 
+      ))}  */}
     </motion.section>
   )
 }
+

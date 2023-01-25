@@ -1,6 +1,6 @@
 require("dotenv").config({
   path: `.env`,
- })
+})
 
 /**
  * Configure your Gatsby site with this file.
@@ -26,6 +26,7 @@ module.exports = {
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     "gatsby-plugin-anchor-links",
+   
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -37,6 +38,10 @@ module.exports = {
         name: `content`,
         path: `${__dirname}/src/content`,
       },
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {},
     },
     {
       resolve: `gatsby-plugin-manifest`,
@@ -55,9 +60,14 @@ module.exports = {
     {
       resolve: "gatsby-plugin-anchor-links",
       options: {
-        offset: -30
-
+        offset: -30,
       },
     },
+    // {
+    //   resolve: "gatsby-plugin-mdx",
+    //   options: {
+    //     extensions:[`.mdx`,`.md`],
+    //   },
+    // },
   ],
 }
