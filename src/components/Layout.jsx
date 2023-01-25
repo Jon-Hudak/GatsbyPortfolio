@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import Navbar from "./Navbar"
 import { AnchorLink } from "gatsby-plugin-anchor-links"
+import { MDXProvider } from "@mdx-js/react"
 
 function Layout({ children, background, className, footerClass }) {
   const [navbarChange, setNavbarChange] = useState(false)
@@ -23,7 +24,7 @@ function Layout({ children, background, className, footerClass }) {
     <div className={` flex min-h-screen flex-col layout ${background}`}>
       <Navbar navbarChange={navbarChange} />
       <div className="flex-1 grow mt-24">
-        <div className={className}>{children}</div>
+        <div className={className}><MDXProvider>{children}</MDXProvider></div>
       </div>
       <AnchorLink
         to="#top"

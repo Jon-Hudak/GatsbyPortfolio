@@ -1,11 +1,14 @@
 import React, { useState } from "react"
 import heroPic from "../images/GlitchCB.gif"
 import ContactSec from "./ContactSec"
-import { AnimatePresence, motion } from "framer-motion"
+import { AnimatePresence, motion, useInView } from "framer-motion"
 import { TypeAnimation } from "react-type-animation"
 import autoprefixer from "autoprefixer"
+import { useRef } from "react"
 
 function Hero() {
+  const h1Ref=useRef(null);
+  const h1IsInView=useInView(h1Ref);
   const [contactOpen, setContactOpen] = useState(false)
   const handleContact = () => {
     setContactOpen(!contactOpen)
@@ -22,7 +25,7 @@ function Hero() {
     drag: { cursor: "grabbing", transition: { delay: 0 } },
   }
   const contactVariant = {
-    hidden: { opacity: 0, height: 0, transition: { duration: 1.5 } },
+    hidden: { opacity: 1, height: 0, transition: { duration: 1.5 } },
     shown: i => ({
       opacity: 1,
       height: "auto",
@@ -40,13 +43,14 @@ function Hero() {
       viewport={{ once: true, margin: "0px 0px -15% 0px" }}
       transition={{ duration: 0.5 }}
     >
-      <div className="py-5 border border-orange-400 rounded-lg shadow-xl bg-black/50 ">
+      <div className="cont py-16 px-0  ">
         <div
           className={`flex flex-col-reverse lg:flex-row w-full grow  px-2 sm:px-24 sm:mt-6 max-w-5xl justify-between content-center rounded-md items-center `}
         >
           <div className="px-10 max-w-lg">
             <h1
-              className="mt-5 text-4xl sm:text-5xl h-36 text-center lg:text-left select-none text-white font-mono"
+              className="mt-5 text-4xl sm:text-5xl h-36 pb-5 text-center lg:text-left select-none text-white font-title "
+              ref={h1Ref}
               drag
               dragSnapToOrigin
               dragTransition={{ bounceStiffness: 1, bounceDamping: 3 }}
@@ -55,8 +59,8 @@ function Hero() {
               viewport={{ once: true }}
               whileTap={"drag"}
             >
-              <TypeAnimation
-              className="type after:absolute "
+              {h1IsInView && <TypeAnimation
+              className="type after:absolute after:w-0 "
                 sequence={[
                   "Freelance Web Developer",
                   1000,
@@ -67,13 +71,13 @@ function Hero() {
                   "Freelance Coffee Drinker",
                   1000,
                   "Freelance Weeb",
-                  20,
+                  5,
                 ]}
                 repeat={Infinity}
-              />
+              />}
             </h1>
             <motion.p
-              className="text-white/60 font-sans mt-5 text-xl sm:text-2xl text-center lg:text-left"
+              className="text-white/60 font-sans mt-5 text-xl sm:text-2xl text-center lg:text-left "
               drag
               dragSnapToOrigin
               dragTransition={{ bounceStiffness: 1, bounceDamping: 3 }}
@@ -89,8 +93,8 @@ function Hero() {
 
             <motion.button
               onClick={handleContact}
-              className={`relative py-6 px-6 mt-10 w-full font-black font-mono text-lg sm:text-2xl rounded-full shadow-lg border border-gray-400 text-gray-900 hover:bg-yellow-700 hover:text-gray-300 active:bg-yellow-900 focus:outline-none focus:ring focus:ring-orange-500 ${
-                contactOpen ? "bg-yellow-700" : "bg-yellow-400"
+              className={`relative py-6 px-6 mt-10 w-full font-black font-mono text-lg sm:text-2xl rounded-full shadow-lg border border-neutral-400 text-gray-900 hover:bg-sky-700 hover:text-gray-300 active:bg-yellow-900 focus:outline-none focus:ring focus:ring-sky-500 ${
+                contactOpen ? "bg-sky-600" : "bg-accent-blue"
               }`}
               variants={variants}
               custom={2}
@@ -103,7 +107,7 @@ function Hero() {
           </div>
 
           <motion.img
-            className="z-20 h-48 w-48 lg:h-64 lg:w-64 object-cover object-top rounded-full shrink-0 hover:grayscale border-2 border-orange-400 shadow-xl cursor-move"
+            className="z-20 h-48 w-48 lg:h-64 lg:w-64 object-cover object-top rounded-full shrink-0 hover:grayscale border-2 border-accent-blue shadow-xl cursor-move"
             alt="Me with a glitch effect"
             src={heroPic}
             drag

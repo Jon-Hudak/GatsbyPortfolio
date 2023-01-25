@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 .line {
@@ -34,30 +35,37 @@
     stroke-dashoffset: -134;
     stroke-width: 6;
   }
-  .type{
-    position:relative;
-  }
-  /* .type::after {
-    content: '|';
-    animation: cursor 1.1s infinite step-start;
-    position:absolute;
-    
-    
-  } */
+ 
  
   
 
 @tailwind utilities;
+
+
+
 @layer components{
   .inputField{
-    @apply text-black px-3 py-2 text-xl w-full bg-orange-50 focus:bg-orange-200 border-2 border-yellow-500 outline-double outline-4 outline-gray-700 rounded-2xl
+    @apply text-black px-3 py-2 text-xl w-full bg-orange-50 focus:bg-orange-200 border-2 border-yellow-500 outline-double outline-4 outline-neutral-700 rounded-2xl
   }
   .formLabel{
     @apply text-2xl py-2
   }
   .h2{
-    @apply type h-10 font-bold font-mono text-center text-3xl text-white after:absolute
+    @apply type h-10 font-bold font-mono text-3xl text-white after:absolute
   }
-
+  .cont{
+    @apply px-5 text-white bg-dark-gray rounded-lg border border-accent-blue shadow-xl
+    
+  }
+  p{
+      @apply text-white/60
+    }
+  .type{
+    @apply relative font-title
+  }
+  .type::after{
+    @apply absolute
+  }
   
 }
+@import url('https://fonts.googleapis.com/css2?family=Aldrich&display=swap');

@@ -1,13 +1,24 @@
 /** @type {import('tailwindcss').Config} */
+//const colors= require('tailwindcss/colors')
 module.exports = {
   content: [
     "./src/pages/**/*.{js,jsx}",
     "./src/components/**/*.{js,jsx}",
   ],
   theme: {
+    
     extend: {
+      fontFamily:{
+        title:["'Aldrich', cursive"]
+      },
       colors: {
         'dark-gray': '#191919',
+        'accent-orange': '#FB923C',
+        'accent-blue': '#43B0FF',
+        'gunmetal': '#292F36',
+        'cardinal': '#D00000',
+      
+       
       },
       screens:{
         'tall' : {'raw':'(min-height:701px)'}
