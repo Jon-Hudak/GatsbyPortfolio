@@ -16,8 +16,8 @@ function InfoCard({ title, children, icon, typeCursor, index }) {
       viewport={{ once: true, margin:"0px 0px -10% 0px" }}
       transition={{ duration: 1}}
     >
-      <h2 ref={ref}>
-      {isInView&& <TypeAnimation className="type card-title  h-10 font-bold text-center text-2xl " sequence={[index*1000,title,1000 ]} cursor={typeCursor} />}
+      <h2 ref={ref} className="notype card-title h-10 font-bold text-center text-2xl">
+       {title}
        </h2> 
        
        <ReactSVG src={icon} wrapper="div"  className="flex place-self-center h-24 w-24"/>

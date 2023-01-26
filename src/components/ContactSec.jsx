@@ -99,13 +99,11 @@ export default function ContactSec({ popup }) {
       // viewport={{ once: true, margin:"0px 0px -10% 0px" }}
       // transition={{ duration: 1 }}
     >
-      {!popup && (
-        <h2 ref={ref}>
-          {isInView && (
-            <TypeAnimation className="h2" sequence={["Contact Me"]} />
-          )}
+      {!popup && 
+        <h2 ref={ref} className="h2 type">
+          Contact Me
         </h2>
-      )}
+      }
       <form
         name="Contact"
         className="flex flex-col w-full md:px-10 my-5"
@@ -176,7 +174,7 @@ export default function ContactSec({ popup }) {
         </label>
         <button
           type="submit"
-          className="py-6 px-6 mt-10 w-full place-self-end border border-gray-400 font-black text-lg sm:text-xl rounded-full shadow-lg bg-accent-blue text-gray-900 transition duration-500 hover:bg-yellow-700 hover:text-gray-300 active:bg-sky-900 focus:outline-none focus:ring focus:ring-accent-blue"
+          className="py-6 px-6 mt-10 w-full font-black text-lg sm:text-xl button"
         >
           Submit
         </button>

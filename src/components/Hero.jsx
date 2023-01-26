@@ -6,8 +6,8 @@ import { TypeAnimation } from "react-type-animation"
 import { useRef } from "react"
 
 function Hero() {
-  const h1Ref=useRef(null);
-  const h1IsInView=useInView(h1Ref);
+  const h1Ref = useRef(null)
+  const h1IsInView = useInView(h1Ref)
   const [contactOpen, setContactOpen] = useState(false)
   const handleContact = () => {
     setContactOpen(!contactOpen)
@@ -48,7 +48,6 @@ function Hero() {
         >
           <div className="px-10 max-w-lg">
             <h1
-              
               className="mt-5 text-4xl sm:text-5xl h-36 pb-5 text-center lg:text-left select-none text-white font-title"
               ref={h1Ref}
               drag
@@ -58,29 +57,34 @@ function Hero() {
               whileInView={"shown"}
               viewport={{ once: true }}
               whileTap={"drag"}
-              aria-label="Freelance Web Developer"
-              
             >
-              {h1IsInView && <TypeAnimation
-              aria-hidden
-              className="type after:absolute after:w-0 "
-                sequence={[
-                  "Freelance Web Developer",
-                  1000,
-                  "Freelance Pittsburgher",
-                  1000,
-                  "Freelance Karaoke Enthusiast",
-                  1000,
-                  "Freelance Coffee Drinker",
-                  1000,
-                  "Freelance Weeb",
-                  5,
-                ]}
-                repeat={Infinity}
-              />}
+              <span className="text-white/0 absolute">
+                Freelance Web Developer
+              </span>
+              {h1IsInView && (
+                <TypeAnimation
+                  aria-hidden
+                  speed={30}
+                  className="type after:absolute after:w-0 "
+                  sequence={[
+                    700,
+                    "Freelance Weeb",
+                    
+                    "Freelance Web Developer",
+                    1000,
+                    "Freelance Pittsburgher",
+                    1000,
+                    "Freelance Karaoke Enthusiast",
+                    1000,
+                    "Freelance Coffee Drinker",
+                    1000,
+                  ]}
+                  repeat={Infinity}
+                />
+              )}
             </h1>
             <motion.p
-              className="text-white/60 font-sans mt-5 text-xl sm:text-2xl text-center lg:text-left "
+              className="font-sans mt-5 text-xl sm:text-2xl text-center lg:text-left "
               drag
               dragSnapToOrigin
               dragTransition={{ bounceStiffness: 1, bounceDamping: 3 }}
@@ -96,7 +100,7 @@ function Hero() {
 
             <motion.button
               onClick={handleContact}
-              className={`relative py-6 px-6 mt-10 w-full font-black font-mono text-lg sm:text-2xl rounded-full shadow-lg border border-neutral-400 text-gray-900 hover:bg-sky-700 hover:text-gray-300 active:bg-yellow-900 focus:outline-none focus:ring focus:ring-sky-500 ${
+              className={`relative py-6 px-6 mt-10 w-full button ${
                 contactOpen ? "bg-sky-600" : "bg-accent-blue"
               }`}
               variants={variants}
@@ -129,7 +133,6 @@ function Hero() {
             {contactOpen && (
               <motion.div
                 className="overflow-hidden bg-black place-content-center flex-col rounded-lg origin-top border border-gray-600"
-                
                 variants={contactVariant}
                 custom={0}
                 initial={"hidden"}

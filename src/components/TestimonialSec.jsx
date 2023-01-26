@@ -62,9 +62,9 @@ export default function TestimonialSec({ activeSection, setActiveSection }) {
       viewport={{ once: true, margin: "0px 0px -10% 0px" }}
       transition={{ duration: 1 }}
     >
-      <TypeAnimation wrapper={"h2"} sequence={["Here's what others said"]} className="h2 text-3xl mt-3 text-center lg:text-4xl lg:text-left">
-        
-      </TypeAnimation>
+      <h2 className="h2 type">
+        Here's what others have said
+      </h2>
 
       {nodes.map(({ node }) => (
         <div
