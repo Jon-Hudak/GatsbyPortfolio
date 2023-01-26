@@ -5,8 +5,8 @@ import { useState } from "react"
 import { TypeAnimation } from "react-type-animation"
 
 export default function ContactSec({ popup }) {
-  const ref = useRef(null) 
-  const isInView = useInView(ref, {once:true})
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true })
   const [formState, setFormState] = useState({
     name: "",
     email: "",
@@ -15,7 +15,7 @@ export default function ContactSec({ popup }) {
     message: "",
     nameValid: "",
     emailValid: "",
-    formErrors: { name: "", email: ""},
+    formErrors: { name: "", email: "" },
     formValid: false,
   })
 
@@ -36,9 +36,8 @@ export default function ContactSec({ popup }) {
     //     .then(() => alert("Success!"))
     //     .catch(error => alert(error));
 
-      
     // }
-    e.preventDefault();
+    e.preventDefault()
   }
 
   const formValidation = () => {
@@ -91,9 +90,9 @@ export default function ContactSec({ popup }) {
 
   return (
     <motion.section
-      id={popup?"popupContact":"contactSection"}
+      id={popup ? "popupContact" : "contactSection"}
       className={`px-5 py-3 w-full max-w-5xl rounded-lg place-self-center shadow-xl ${
-        popup ? "" : "mt-5 border border-orange-400 bg-black bg-opacity-40"
+        popup ? "" : "cont mt-5"
       }`}
       // initial={{ opacity:popup?1:0, y: popup?0:50 }}
       // whileInView={{ opacity: 1, y: 0 }}
@@ -101,34 +100,41 @@ export default function ContactSec({ popup }) {
       // transition={{ duration: 1 }}
     >
       {!popup && (
-       
         <h2 ref={ref}>
-        {isInView&& <TypeAnimation className="h2" sequence={["Contact Me"]} />}
-         </h2> 
-        
+          {isInView && (
+            <TypeAnimation className="h2" sequence={["Contact Me"]} />
+          )}
+        </h2>
       )}
-      <form name="Contact" className="flex flex-col w-full md:px-10 my-5" method="post" onSubmit={handleSubmit} netlify>
-      <input type="hidden" name="form-name" value="Contact" />
-        <label htmlFor="name" className="formLabel">
+      <form
+        name="Contact"
+        className="flex flex-col w-full md:px-10 my-5"
+        method="post"
+        onSubmit={handleSubmit}
+        netlify
+      >
+        <input type="hidden" name="form-name" value="Contact" />
+        <label className="formLabel">
           Name:
+          <input
+            id={popup ? "popUpName" : "name"}
+            name="name"
+            type="text"
+            className={
+              formState.nameValid
+                ? "inputField outline-green-500"
+                : "inputField outline-red-600"
+            }
+            onBlur={fieldValidation}
+            onChange={handleChange}
+            value={formState.name}
+            placeholder="Name"
+          />
         </label>
-        <input
-          id="name"
-          name="name"
-          type="text"
-          className={
-            formState.nameValid
-              ? "inputField outline-green-500"
-              : "inputField outline-red-600"
-          }
-          onBlur={fieldValidation}
-          onChange={handleChange}
-          value={formState.name}
-          placeholder="Name"
-        />
-        <label htmlFor="email" className="formLabel">
+
+        <label className="formLabel">
           Email:
-        </label>
+        
         <input
           id="email"
           name="email"
@@ -142,7 +148,7 @@ export default function ContactSec({ popup }) {
           onChange={handleChange}
           value={formState.email}
           placeholder="Email"
-        />
+        /></label>
         {/* <label htmlFor="phone" className="formLabel">Phone:</label>
          <input
           id="phone"
@@ -154,23 +160,23 @@ export default function ContactSec({ popup }) {
           value={formState.phone}
           placeholder="Phone"
         /> */}
-        <label htmlFor="message" className="formLabel">
+        <label className="formLabel">
           Message:
-        </label>
+        
         <textarea
           id="message"
           name="message"
           type="text"
           className="inputField overflow-y-auto"
-          rows="6"  
+          rows="6"
           onChange={handleChange}
           value={formState.message}
           placeholder="Message"
-          
         />
+        </label>
         <button
           type="submit"
-          className="py-6 px-6 mt-10 w-full place-self-end border border-gray-400 font-black text-lg sm:text-xl rounded-full shadow-lg bg-yellow-400 text-gray-900 transition duration-500 hover:bg-yellow-700 hover:text-gray-300 active:bg-yellow-900 focus:outline-none focus:ring focus:ring-orange-500"
+          className="py-6 px-6 mt-10 w-full place-self-end border border-gray-400 font-black text-lg sm:text-xl rounded-full shadow-lg bg-accent-blue text-gray-900 transition duration-500 hover:bg-yellow-700 hover:text-gray-300 active:bg-sky-900 focus:outline-none focus:ring focus:ring-accent-blue"
         >
           Submit
         </button>

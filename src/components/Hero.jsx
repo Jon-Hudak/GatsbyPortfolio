@@ -3,7 +3,6 @@ import heroPic from "../images/GlitchCB.gif"
 import ContactSec from "./ContactSec"
 import { AnimatePresence, motion, useInView } from "framer-motion"
 import { TypeAnimation } from "react-type-animation"
-import autoprefixer from "autoprefixer"
 import { useRef } from "react"
 
 function Hero() {
@@ -127,9 +126,10 @@ function Hero() {
 
         <motion.div className=" bg-opacity-50 mx-5 my-5 place-self-center">
           <AnimatePresence>
-            {(
+            {contactOpen && (
               <motion.div
                 className="overflow-hidden bg-black place-content-center flex-col rounded-lg origin-top border border-gray-600"
+                
                 variants={contactVariant}
                 custom={0}
                 initial={"hidden"}

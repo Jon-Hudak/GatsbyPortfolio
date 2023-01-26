@@ -33,16 +33,19 @@ function Navbar( { navbarChange }) {
         
         <Link to="/">
           <motion.div
+        aria-hidden
         initial={{width:50}}
         animate={{width:navbarChange?90:200}}
         transition={{duration:0.5}}
         >
-          <StaticImage
+          < StaticImage
             imgClassName=""
             className="h-full w-full transition duration-100 hover:grayscale hover:contrast-0 "
             layout="constrained"
             src={logo}
             alt="Site Logo"
+            role="logo"
+            
           />
           {/* <StaticImage
         className="w-16 sm:hidden transition duration-100 hover:grayscale hover:contrast-0"
