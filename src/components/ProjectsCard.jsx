@@ -27,7 +27,7 @@ export default function ProjectsCard({ node}) {
       initial={{ opacity: 0, x: 50 }}
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true, margin: "0px 0px -10% 0px" }}
-      transition={{ duration: 1, delay: 1 }}
+      transition={{ duration: 1, delay: 0.3 }}
     >
       <a
         className="p-5 hover:bg-black flex h-full flex-col rounded-md place-items-center w-72 transition duration-200 hover:bg-opacity-30 group border border-gray-700"
@@ -39,16 +39,16 @@ export default function ProjectsCard({ node}) {
           alt={node.frontmatter.imageAlt}
         />
         <div className="mt-4 text-center ">
-          <h3 className="text-2xl text-red-600 font-bold">
+          <h3 className="text-2xl text-accent-blue font-bold duration-200 group-hover:text-white">
             {node.frontmatter.title}
           </h3>
           <h4 className="text-gray-500">{node.frontmatter.type}</h4>
         </div>
 
-        <div dangerouslySetInnerHTML={{__html: node.html}} className="mt-5 text-lg">
+        <div dangerouslySetInnerHTML={{__html: node.html}} className="mt-5 text-lg" />
             
             
-          </div>
+          
       </a>
     </motion.div>
   )

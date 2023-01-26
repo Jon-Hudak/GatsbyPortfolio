@@ -54,13 +54,13 @@ console.log(nodes);
     <motion.section
       ref={sectionRef}
       id="projects"
-      className="mt-5 w-7xl px-5 py-3 bg-black bg-opacity-40 max-w-5xl rounded-lg place-self-center border border-orange-400 shadow-xl"
+      className="mt-5 w-7xl px-5 py-3 cont"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "0px 0px -10% 0px" }}
       transition={{ duration: 1 }}
     >
-      <h2 className="text-3xl mt-3 text-red-600 font-bold text-center md:text-4xl md:text-left">
+      <h2 className="h2 mt-3 text-center md:text-left">
         Here's some things I've worked on
       </h2>
       <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 md:gap-5 ">
