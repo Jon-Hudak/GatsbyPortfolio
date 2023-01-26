@@ -94,10 +94,10 @@ export default function ContactSec({ popup }) {
       className={`px-5 py-3 w-full max-w-5xl rounded-lg place-self-center shadow-xl ${
         popup ? "" : "cont mt-5"
       }`}
-      // initial={{ opacity:popup?1:0, y: popup?0:50 }}
-      // whileInView={{ opacity: 1, y: 0 }}
-      // viewport={{ once: true, margin:"0px 0px -10% 0px" }}
-      // transition={{ duration: 1 }}
+      initial={{ opacity:popup?1:0, y: popup?0:50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin:"0px 0px -10% 0px" }}
+      transition={{ duration: 1 }}
     >
       {!popup && 
         <h2 ref={ref} className="h2 type">

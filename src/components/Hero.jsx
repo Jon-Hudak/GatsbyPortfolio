@@ -36,7 +36,7 @@ function Hero() {
   return (
     <section
       id="hero"
-      className="flex flex-col place-items-center mt-5"
+      className="flex flex-col place-items-center w-max mt-5 max-w-5xl"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "0px 0px -15% 0px" }}
@@ -63,7 +63,8 @@ function Hero() {
               </span>
               {h1IsInView && (
                 <TypeAnimation
-                  aria-hidden
+                  aria-hidden={true}
+                  aria-label="hi"
                   speed={30}
                   className="type after:absolute after:w-0 "
                   sequence={[

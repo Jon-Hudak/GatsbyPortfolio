@@ -54,14 +54,14 @@ console.log(nodes);
     <motion.section
       ref={sectionRef}
       id="projects"
-      className="mt-5 w-7xl px-5 py-3 cont"
+      className="mt-5 max-w-5xl px-5 py-3 cont"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "0px 0px -10% 0px" }}
       transition={{ duration: 1 }}
     >
       <h2 className="h2 type mt-3 ">
-        Here's some things I've worked on
+        Things I've Worked On
       </h2>
       <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 md:gap-5 ">
         {nodes.map(({ node }) => (

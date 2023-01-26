@@ -56,19 +56,19 @@ export default function TestimonialSec({ activeSection, setActiveSection }) {
     <motion.section
       ref={sectionRef}
       id="testimonials"
-      className="mt-5 mx-auto w-auto px-5 py-3 max-w-4xl cont "
+      className="mt-5 w-auto px-5 py-3 max-w-5xl cont "
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "0px 0px -10% 0px" }}
       transition={{ duration: 1 }}
     >
       <h2 className="h2 type">
-        Here's what others have said
+        Some Nice Words
       </h2>
 
       {nodes.map(({ node }) => (
         <div
-          className="flex flex-col lg:flex-row place-items-center my-5 py-5 lg:px-5 border border-gray-700 rounded-md"
+          className="flex m-5 flex-col lg:flex-row place-items-center my-5 py-5 lg:px-5 border border-gray-700 rounded-md"
           key={node.id}
         >
           <div className="flex flex-col place-items-center">
@@ -85,7 +85,7 @@ export default function TestimonialSec({ activeSection, setActiveSection }) {
             </div>
           </div>
 
-          <p className="px-10 lg:pr-0 mt-5 text-lg" dangerouslySetInnerHTML={{__html: node.html}} />
+          <p className="px-10 lg:pr-0 mt-5 text-lg " dangerouslySetInnerHTML={{__html: node.html}} />
         </div>
       ))}
     </motion.section>
