@@ -14,7 +14,7 @@ function InfoSec() {
       title: " Mobile-Friendly",
     },
     {
-      text: "If a product is confusing to use, then people don't want to use it, no matter how beatiful it is. This is where a focus on user-experience comes in to eliminate lost conversions due to people not knowing how to interact with your website or app.",
+      text: "If a product is confusing to use, then people don't want to use it, no matter how beautiful it is. This is where a focus on user-experience comes in to eliminate lost conversions due to people not knowing how to interact with your website or app.",
       icon: lightbulbSVG,
       typeCursor: false,
       title: " User Experience",
@@ -30,7 +30,7 @@ function InfoSec() {
   return (
     <section
       id="about"
-      className="mt-5 grid grid-cols-1 max-w-6xl lg:grid-cols-3 lg:gap-10 xl:gap-15 "
+      className="mt-5 grid grid-cols-1 max-w-6xl md:gap-0 md:grid-cols-3 lg:gap-10 xl:gap-15 "
     >
       {items.map((item, i) => (
         <InfoCard

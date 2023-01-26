@@ -45,13 +45,13 @@
 
 @layer components{
   .inputField{
-    @apply text-black px-3 py-2 text-xl w-full bg-orange-50 focus:bg-orange-200 border-2 border-yellow-500 outline-double outline-4 outline-neutral-700 rounded-2xl
+    @apply text-black px-3 py-2 text-xl w-full bg-blue-50 focus:bg-blue-200 border-2 border-blue-500 outline-double outline-4 outline-neutral-700 rounded-2xl
   }
   .formLabel{
     @apply text-2xl py-2
   }
   .h2{
-    @apply type h-10 font-bold font-mono text-3xl text-white after:absolute
+    @apply type font-bold font-title text-3xl text-white after:absolute
   }
   .cont{
     @apply px-5 text-white bg-dark-gray rounded-lg border border-accent-blue shadow-xl
