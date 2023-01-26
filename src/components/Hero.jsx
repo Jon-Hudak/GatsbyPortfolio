@@ -43,13 +43,14 @@ function Hero() {
       viewport={{ once: true, margin: "0px 0px -15% 0px" }}
       transition={{ duration: 0.5 }}
     >
-      <div className="cont py-16 px-0  ">
+      <div className="cont py-16 px-0">
         <div
-          className={`flex flex-col-reverse lg:flex-row w-full grow  px-2 sm:px-24 sm:mt-6 max-w-5xl justify-between content-center rounded-md items-center `}
+          className={`flex flex-col-reverse lg:flex-row w-full grow  px-2 sm:px-24 sm:mt-6 max-w-5xl justify-between content-center rounded-md items-center`}
         >
           <div className="px-10 max-w-lg">
             <h1
-              className="mt-5 text-4xl sm:text-5xl h-36 pb-5 text-center lg:text-left select-none text-white font-title "
+              
+              className="mt-5 text-4xl sm:text-5xl h-36 pb-5 text-center lg:text-left select-none text-white font-title"
               ref={h1Ref}
               drag
               dragSnapToOrigin
@@ -58,8 +59,11 @@ function Hero() {
               whileInView={"shown"}
               viewport={{ once: true }}
               whileTap={"drag"}
+              aria-label="Freelance Web Developer"
+              
             >
               {h1IsInView && <TypeAnimation
+              aria-hidden
               className="type after:absolute after:w-0 "
                 sequence={[
                   "Freelance Web Developer",
@@ -123,7 +127,7 @@ function Hero() {
 
         <motion.div className=" bg-opacity-50 mx-5 my-5 place-self-center">
           <AnimatePresence>
-            {contactOpen && (
+            {(
               <motion.div
                 className="overflow-hidden bg-black place-content-center flex-col rounded-lg origin-top border border-gray-600"
                 variants={contactVariant}
