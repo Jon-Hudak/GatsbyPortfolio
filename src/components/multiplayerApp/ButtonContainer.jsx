@@ -1,9 +1,5 @@
 import { motion } from "framer-motion"
-import React, { useEffect } from "react"
-// import { PlayerButton } from "./PlayerButton";
-// import {BtnBox} from "./BtnBox";
-// import {ButtonText} from "./ButtonText";
-//import {BtnCont} from "./BtnCont";
+import React from "react"
 
 function ButtonContainer({ playerList, filter, setFilter }) {
   function renderButtons(player) {
@@ -11,16 +7,19 @@ function ButtonContainer({ playerList, filter, setFilter }) {
     if (filter[player] === true) {
       isToggled = true
     }
-    if (player == "undefined") {
+    if (player === undefined) {
       return null
     }
     return (
-      <li
-        className="py-1 tall:py-0 tall:max-h-16 tall:w-36 grow bg-gray-800 flex px-4 gap-4 justify-end border border-orange-600 select-none hover:bg-gray-900 active:bg-orange-900"
+      <li className="py-1 tall:py-0 tall:max-h-16 tall:w-36 grow  flex">
+      <button
+        className="w-full flex gap-4 px-4 justify-end bg-gray-800 border border-orange-600 select-none hover:bg-gray-900 active:bg-orange-900"
         onClick={() => handleClick(player, filter)}
+        onKeyDown={()=> handleKeyDown(player, filter)}
         value={player}
         key={player}
         role="checkbox"
+        aria-checked={isToggled}
       >
         <span className="my-auto text-white font-mono">{player}</span>
 
@@ -29,10 +28,14 @@ function ButtonContainer({ playerList, filter, setFilter }) {
             isToggled ? "bg-green-500" : "bg-orange-600"
           }`}
         ></div>
-      </li>
+      </button></li>
     )
   }
-
+  function handleKeyDown(e, player, filter){
+    if (e.key==="Enter"||e.key==="Space"){
+      handleClick(player,filter)
+    }
+  }
   function handleClick(e, filtered) {
     const toggle = !filtered[e]
 
@@ -45,7 +48,7 @@ function ButtonContainer({ playerList, filter, setFilter }) {
     <div className="tall:basis-48 shrink-0">
       <motion.ul
         id="buttonCont"
-        className="tall:m-1 bg-dark-gray fixed bottom-0 tall:left-3 tall:bottom-24 tall:top-24 z-10 py-2 px-2 gap-2 flex tall:flex-col min-w-full tall:min-w-fit border border-gray-700 shrink flex-wrap"
+        className="tall:m-1 bg-dark-gray fixed bottom-0 tall:left-3 tall:bottom-24 tall:top-24 z-10 py-2 px-2 gap-2 flex tall:flex-col min-w-full tall:min-w-fit border border-gray-700 shrink flex-wrap justify-around"
         initial={{ x: "-90%" }}
         animate={{ x: 0 }}
         transition={{ delay: 2, duration: 1.5, ease: "easeInOut" }}

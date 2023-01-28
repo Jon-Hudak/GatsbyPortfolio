@@ -14,7 +14,7 @@ function Hero() {
   }
 
   const variants = {
-    hidden: { opacity: 0, x: 50, cursor: "grab" },
+    hidden: { opacity: 0, x: 50 },
     shown: i => ({
       opacity: 1,
       x: 0,
@@ -22,6 +22,7 @@ function Hero() {
       transition: { delay: i * 0.5, duration: 1, ease: "easeOut" },
     }),
     drag: { cursor: "grabbing", transition: { delay: 0 } },
+    dragEnd: { cursor: "grab", opacity:0.5, transition: { delay: 0 } },
   }
   const contactVariant = {
     hidden: { opacity: 1, height: 0, transition: { duration: 1.5 } },
@@ -37,10 +38,10 @@ function Hero() {
     <section
       id="hero"
       className="flex flex-col place-items-center w-max mt-5 max-w-5xl"
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "0px 0px -15% 0px" }}
-      transition={{ duration: 0.5 }}
+      // initial={{ opacity: 0, y: 50 }}
+      // whileInView={{ opacity: 1, y: 0 }}
+      // viewport={{ once: true, margin: "0px 0px -15% 0px" }}
+      // transition={{ duration: 0.5 }}
     >
       <div className="cont py-16 px-0">
         <div
@@ -50,13 +51,6 @@ function Hero() {
             <h1
               className="mt-5 text-4xl sm:text-5xl h-36 pb-5 text-center lg:text-left select-none text-white font-title"
               ref={h1Ref}
-              drag
-              dragSnapToOrigin
-              dragTransition={{ bounceStiffness: 1, bounceDamping: 3 }}
-              initial={"hidden"}
-              whileInView={"shown"}
-              viewport={{ once: true }}
-              whileTap={"drag"}
             >
               <span className="text-white/0 absolute">
                 Freelance Web Developer
@@ -68,9 +62,6 @@ function Hero() {
                   speed={30}
                   className="type after:absolute after:w-0 "
                   sequence={[
-                    700,
-                    "Freelance Weeb",
-                    
                     "Freelance Web Developer",
                     1000,
                     "Freelance Pittsburgher",
@@ -79,13 +70,14 @@ function Hero() {
                     1000,
                     "Freelance Coffee Drinker",
                     1000,
+                    "Freelance Weeb",
                   ]}
                   repeat={Infinity}
                 />
               )}
             </h1>
             <motion.p
-              className="font-sans mt-5 text-xl sm:text-2xl text-center lg:text-left "
+              className="font-sans mt-5 text-xl sm:text-2xl text-center lg:text-left cursor-grab"
               drag
               dragSnapToOrigin
               dragTransition={{ bounceStiffness: 1, bounceDamping: 3 }}
@@ -94,6 +86,7 @@ function Hero() {
               initial={"hidden"}
               animate={"shown"}
               whileTap={"drag"}
+              tapCancel={"dragEnd"}
             >
               Convert more customers with an expert focus on user experience and
               SEO!
@@ -115,7 +108,7 @@ function Hero() {
           </div>
 
           <motion.img
-            className="z-20 h-48 w-48 lg:h-64 lg:w-64 object-cover object-top rounded-full shrink-0 hover:grayscale border-2 border-accent-blue shadow-xl cursor-move"
+            className="z-10 h-48 w-48 lg:h-64 lg:w-64 object-cover object-top rounded-full shrink-0 border-2 border-accent-blue shadow-xl cursor-grab hover:grayscale"
             alt="Me with a glitch effect"
             src={heroPic}
             drag
@@ -124,8 +117,9 @@ function Hero() {
             variants={variants}
             custom={4}
             initial={["hidden", { x: 100, rotate: 45 }]}
-            whileInView={"shown"}
-            viewport={{ once: true }}
+            animate={"shown"}
+            whileTap={"drag"}
+            tapCancel={"dragEnd"}
           />
         </div>
 

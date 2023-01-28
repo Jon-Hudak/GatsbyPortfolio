@@ -1,4 +1,5 @@
 @tailwind base;
+
 @tailwind components;
 .line {
   fill: none;
@@ -73,5 +74,17 @@
   .button {
     @apply font-black font-mono text-lg sm:text-2xl rounded-full shadow-lg bg-accent-blue border border-neutral-400 text-gray-900 hover:bg-sky-700 hover:text-gray-300 active:bg-sky-900 focus:outline-none focus:ring focus:ring-sky-500;
   }
+  .quotebox p {
+    @apply leading-snug mt-3 font-thin;
+  }
+  .quotebox strong {
+    @apply font-semibold text-white;
+  }
+
+  .quotebox :first-child {
+    @apply mt-0;
+  }
+  
 }
+
 @import url("https://fonts.googleapis.com/css2?family=Aldrich&display=swap");
