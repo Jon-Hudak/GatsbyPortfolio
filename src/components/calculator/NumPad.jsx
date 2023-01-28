@@ -1,3 +1,4 @@
+/*eslint-disable eqeqeq*/ /*eslint-disable no-eval*/
 import React from "react";
 import { useState } from "react";
 import { btnArray } from "./ButtonArray";
@@ -11,18 +12,18 @@ export default function NumPad({ display, answer, setDisplay, setAnswer }) {
 
   const equals = (input) => {
     let newAns = 0;
-    let newDisp = input;
+    //let newDisp = input;
     let breakout = false;
     let match =''
     
     while (/\d+[x/]-?\d+/.test(input) && breakout == false) {
       //checks if multiplication or division first
        match = input.match(
-        /([-]?[0-9]+(?:[.][0-9]+)?)([x\/])([-]?[0-9]+(?:[.][0-9]+)?)/
+        /([-]?[0-9]+(?:[.][0-9]+)?)([x/])([-]?[0-9]+(?:[.][0-9]+)?)/
       );
       
       console.log(match);
-      let [exp, num1, operator, num2] = match;
+      let [exp, , operator, num2] = match;
 
       switch (operator) {
         case "x":
@@ -60,12 +61,11 @@ export default function NumPad({ display, answer, setDisplay, setAnswer }) {
       );
       
       console.log(match);
-      let [exp, num1, operator, num2] = match;
+      let [exp, , operator] = match;
 
       switch (operator) {
         case "+":
           console.log("no");
-          //newAns = (num1) + (num2);
           newAns= Math.round(1000000000000 * eval(exp)) / 1000000000000;
           input = input.replace(exp, newAns.toString());
           console.log(input);

@@ -49,7 +49,6 @@ export default function ProjectsSec({ activeSection, setActiveSection }) {
     }
   `)
 const nodes=data.allMarkdownRemark.edges
-console.log(nodes);
   return (
     <motion.section
       ref={sectionRef}

@@ -6,12 +6,11 @@ import getGoogleSheet from "../../components/multiplayerApp/getGoogleSheet.jsx"
 import getPlayers from "../../components/multiplayerApp/getPlayers.jsx"
 
 const FREE_INDEX = 1
-const RACE_INDEX = 2
+//const RACE_INDEX = 2
 const TITLE_INDEX = 0
 const FIRST_PLAYER_INDEX = 3
-
 const HEADERS = 0
-const FIRST_GAME_INDEX = 1
+//const FIRST_GAME_INDEX = 1
 
 export default function Multiplayer() {
   const [filter, setFilter] = useState({})
@@ -47,26 +46,53 @@ export default function Multiplayer() {
         isFree = true
       }
       return (
-        
-          <motion.li
-            key={value[TITLE_INDEX]}
-            className={`py-1 tall:py-1 tall:md:py-5  px-5 tall:text-xl tall:md:text-2xl max-h-24  font-bold flex place-items-center bg-lime-600 border ${
-              isFree ? "border-4 border-orange-600" : "border-black"
-            }`}
-            initial={{x:"100%", opacity:0}}
-            animate={{x:0, opacity:1}}
-            exit={{x:"100%", opacity:0}}
-            transition={{duration:0.5, ease:"easeIn"}}
-          >
-            {value[TITLE_INDEX]}
-          </motion.li>
-        
+        <motion.li
+          key={value[TITLE_INDEX]}
+          className={`py-1 tall:py-1 tall:md:py-5  px-5 tall:text-xl tall:md:text-2xl max-h-24  font-bold flex place-items-center bg-lime-600 border ${
+            isFree ? "border-4 border-orange-600" : "border-black"
+          }`}
+          variants={itemVariants}
+          initial={"hidden"}
+          animate={"shown"}
+          exit={"exit"}
+        >
+          {value[TITLE_INDEX]}
+        </motion.li>
       )
     }
   }
+  const listVariants = {
+    hidden: { opacity: 0, y: "100vh" },
+    shown: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: 1,
+        duration: 1,
+        ease: "easeOut",
+      },
+    },
+  }
+  const itemVariants = {
+    hidden: { x: "100%", opacity: 0 },
+    shown: {
+      x: 0,
+      opacity: 1,
+      transition: { duration: 0.5, ease: "easeIn" },
+    },
+    exit: {
+      x: "100%",
+      opacity: 0,
+      transition: { duration: 0.5, ease: "easeIn" },
+    },
+  }
+
   return (
-    <Layout background="bg-dark-gray" footerClass={"mb-24 z-0 tall:z-10 tall:mb-0"}>
-      <div id="top" className=" flex flex-col tall:flex-row overflow-hidden">
+    <Layout
+      background="bg-dark-gray"
+      footerClass={"mb-24 z-0 tall:z-10 tall:mb-0"}
+    >
+      <div id="top" className=" flex flex-col tall:flex-row overflow-hidden ">
         <ButtonContainer
           id="buttonContainer"
           playerList={playerList}
@@ -76,11 +102,12 @@ export default function Multiplayer() {
         <motion.ul
           id="gameListUl"
           className="mt-2 pr-1 p-1 grow auto-rows-[1fr] auto-cols-[1fr] col-spa-4 grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-1 bg-black/90"
-          initial={{ y: "100vh" }}
-          animate={{ y: 0 }}
-          transition={{ delay: 1, duration: 1, ease: "easeOut" }}
-        ><AnimatePresence>
-          {games.map(games => renderGameList(games, filter))}
+          variants={listVariants}
+          initial={"hidden"}
+          animate={"shown"}
+        >
+          <AnimatePresence>
+            {games.map(games => renderGameList(games, filter))}
           </AnimatePresence>
         </motion.ul>
       </div>
