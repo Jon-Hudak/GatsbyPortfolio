@@ -4,7 +4,7 @@ company: Gooby LTD
 name: Gooby
 image1: ./face2.jpg
 imageAlt: Girl  
-date: 2023/11/10
+date: 2021/11/10
 excerpt: <p>Yeee yees <strong>sboooooosa :)</strong> Lorem ipsum dolor</p>
 ---
 

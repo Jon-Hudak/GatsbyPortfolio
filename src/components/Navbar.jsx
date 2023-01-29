@@ -1,24 +1,20 @@
 import { Link } from "gatsby"
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import { StaticImage } from "gatsby-plugin-image"
 import { AnchorLink } from "gatsby-plugin-anchor-links"
-import { motion } from "framer-motion"
+import { AnimatePresence, motion } from "framer-motion"
+import HamburgerMenu from "./HamburgerMenu"
 
-function Navbar( { navbarChange }) {
+function Navbar({ navbarChange }) {
   const logo = "../images/logo-no-background.svg"
   //const smallLogo = "../images/logo-only.png"
   const [hamburgerOpen, setHamburgerOpen] = useState(false)
-
-  
-  
-    
-  
 
   const handleHamburger = () => {
     setHamburgerOpen(!hamburgerOpen)
   }
   const handleKeyDown = e => {
-    if (e.key == "escape") {
+    if (e.key == "Escape") {
       handleHamburger()
     }
   }
@@ -26,38 +22,41 @@ function Navbar( { navbarChange }) {
   return (
     <header className="fixed w-full top-0 z-50" onKeyDown={handleKeyDown}>
       <motion.nav
-        className="px-5 py-3 sm:h-3r2 bg-black text-white flex justify-between items-center "
-        animate={{height: navbarChange?50:100, backgroundColor: navbarChange?"rgba(0, 0, 0, 1)":"rgba(0, 0, 0, 1)"}}
-        transition={{duration:0.5}}
+        className="px-5 py-3 sm:h-32 bg-black text-white flex justify-between items-center z-50 relative"
+        animate={{
+          height: navbarChange ? 50 : 100,
+          backgroundColor: navbarChange
+            ? "rgba(0, 0, 0, 1)"
+            : "rgba(0, 0, 0, 1)",
+        }}
+        transition={{ duration: 0.5 }}
       >
-        
         <Link to="/">
           <motion.div
-        aria-hidden
-        initial={{width:50}}
-        animate={{width:navbarChange?90:200}}
-        transition={{duration:0.5}}
-        >
-          < StaticImage
-            imgClassName=""
-            className="h-full w-full transition duration-100 hover:grayscale hover:contrast-0 "
-            layout="constrained"
-            src={logo}
-            alt="Site Logo"
-            role="logo"
-            
-          />
-          {/* <StaticImage
+            aria-hidden
+            initial={{ width: 50 }}
+            animate={{ width: navbarChange ? 90 : 200 }}
+            transition={{ duration: 0.5 }}
+          >
+            <StaticImage
+              imgClassName=""
+              className="h-full w-full transition duration-100 hover:grayscale hover:contrast-0 "
+              layout="constrained"
+              src={logo}
+              alt="Site Logo"
+              role="logo"
+            />
+            {/* <StaticImage
         className="w-16 sm:hidden transition duration-100 hover:grayscale hover:contrast-0"
         src={smallLogo}
         alt="Small Site Logo"
       /> */}
-        </motion.div>
+          </motion.div>
         </Link>
-        
+
         {/* <h1 className="text-4xl font-semibold"></h1> */}
 
-        <div className="hidden sm:flex sm:w-72 sm:justify-between sm:text-xl">
+        <div className="hidden md:flex md:w-72 md:justify-between md:text-xl">
           <AnchorLink
             className="transition duration-200 hover:text-yellow-600"
             to="/#about"
@@ -79,7 +78,7 @@ function Navbar( { navbarChange }) {
         </div>
         <button
           className={
-            hamburgerOpen ? "menu opened relative sm:hidden" : "menu sm:hidden"
+            hamburgerOpen ? "menu opened relative md:hidden" : "menu md:hidden"
           }
           onClick={handleHamburger}
           onKeyDown={handleHamburger}
@@ -97,13 +96,13 @@ function Navbar( { navbarChange }) {
             />
           </svg>
         </button>
+      
       </motion.nav>
-      {
-        <div
+      {/* <div
           onClick={() => {
             setHamburgerOpen(false)
           }}
-          className={`sm:hidden  w-screen h-screen divide-y divide-gray-700 flex-col absolute right-0 text-right text-5xl bg-black bg-opacity-90 border border-gray-700 ${
+          className={`md:hidden  w-screen h-screen divide-y divide-gray-700 flex-col absolute right-0 text-right text-5xl bg-black bg-opacity-90 border border-gray-700 ${
             hamburgerOpen
               ? "flex origin-top animate-menuOpen"
               : "hidden origin-top animate-menuClose"
@@ -127,8 +126,14 @@ function Navbar( { navbarChange }) {
           >
             Projects
           </AnchorLink>
-        </div>
-      }
+        </div> */}<AnimatePresence>
+        {hamburgerOpen && (
+          <HamburgerMenu
+            hamburgerOpen={hamburgerOpen}
+            setHamburgerOpen={setHamburgerOpen}
+          />
+        )}
+      </AnimatePresence>
     </header>
   )
 }

@@ -1,30 +1,40 @@
 import React from "react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import TestimonialCard from "./TestimonialCard"
+
 import { useLockBodyScroll } from "../useLockBodyScroll"
-import { AnimatePresence, motion } from "framer-motion"
+import {  motion } from "framer-motion"
+import { useEffect } from "react"
 
 function Testimodal({ testimodal, setTestimodal }) {
   const node = testimodal.node
   const html = node.html
 
-  const handleClose = e => {
+  useEffect(() => {
+    function keyListener(e) {
+      if (e.keyCode === 27) {
+        closeModal();
+      }
+    }
+
+    document.addEventListener("keydown", keyListener);
+
+    return () => document.removeEventListener("keydown", keyListener);
+  });
+  const closeModal=()=>{
+    setTestimodal({ ...testimodal, open: false, node: "" });
+  }
+  const handleClick = e => {
     e.preventDefault()
     if (e.target === e.currentTarget) {
-      setTestimodal({ ...testimodal, open: false, node: "" })
+      closeModal();
     }
   }
 
-  const handleEscape = e => {
-    if (e.key == "escape") {
-      handleClose()
-    }
-  }
   useLockBodyScroll()
   return (
     <motion.div
-      className="flex fixed h-screen  bg-black/80 top-0 bottom-0 left-0 right-0 z-50  p-5"
-      onClick={handleClose}
+      className="flex fixed h-screen  bg-black/70 backdrop-blur-md top-0 bottom-0 left-0 right-0 z-50  p-5"
+      onClick={handleClick}
       initial={{ opacity: 0, overflow: "auto" }}
       animate={{ opacity: 1, overflow: "auto" }}
       exit={{ opacity: 0, overflow: "auto" }}
@@ -71,8 +81,8 @@ function Testimodal({ testimodal, setTestimodal }) {
         
         <button
           className="menu opened absolute top-2 left-2"
-          onClick={handleClose}
-          onKeyDown={handleEscape}
+          onClick={handleClick}
+          
           aria-label="Main Menu"
         >
           <svg

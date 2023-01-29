@@ -67,9 +67,11 @@ export default function Multiplayer() {
       opacity: 1,
       y: 0,
       transition: {
+        when:"beforeChildren",
         delay: 1,
         duration: 1,
         ease: "easeOut",
+        
       },
     },
   }

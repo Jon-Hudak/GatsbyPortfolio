@@ -1,6 +1,5 @@
 import React from "react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import Testimodal from "./Testimodal"
 import quotationSVG from "../images/quotationSVG.svg"
 
 function TestimonialCard({ node, testimodal, setTestimodal, index }) {

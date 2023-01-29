@@ -50,7 +50,7 @@
 
 @layer components {
   .inputField {
-    @apply text-black px-3 py-2 text-xl w-full bg-blue-50 focus:bg-blue-200 border-2 border-blue-500 outline-double outline-4 outline-neutral-700 rounded-2xl;
+    @apply text-black px-3 py-2 mt-3 text-xl w-full bg-blue-50 focus:bg-blue-200 border-2 border-blue-500 outline-double outline-4 outline-neutral-700 rounded-2xl;
   }
   .formLabel {
     @apply text-2xl py-2;

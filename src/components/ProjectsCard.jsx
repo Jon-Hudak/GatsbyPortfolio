@@ -1,26 +1,8 @@
-import { StaticImage, GatsbyImage, getImage } from "gatsby-plugin-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
 import { motion } from "framer-motion"
-import { MDXProvider } from "@mdx-js/react"
-import { MDXRenderer } from "gatsby-plugin-mdx"
-import { useEffect } from "react"
 
-
-const MyH1 = props => <h1 style={{ color: `tomato` }} {...props} />
-const MyParagraph = props => (
-  <p style={{ fontSize: "18px", lineHeight: 1.6 }} {...props} />
-)
-
-const components = {
-  h1: MyH1,
-  p: MyParagraph,
-}
-
-export default function ProjectsCard({ node}) {
- 
-  
-  
+export default function ProjectsCard({ node }) {
   return (
     <motion.div
       className="my-5 md:px-5  w-auto mx-auto"
@@ -45,10 +27,10 @@ export default function ProjectsCard({ node}) {
           <h4 className="text-gray-500">{node.frontmatter.type}</h4>
         </div>
 
-        <div dangerouslySetInnerHTML={{__html: node.html}} className="mt-5 text-lg" />
-            
-            
-          
+        <div
+          dangerouslySetInnerHTML={{ __html: node.html }}
+          className="mt-5 text-lg"
+        />
       </a>
     </motion.div>
   )

@@ -1,4 +1,3 @@
-import { StaticImage, GatsbyImage, getImage } from "gatsby-plugin-image"
 import React, { useEffect, useRef } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import ProjectsCard from "./ProjectsCard"
@@ -15,7 +14,7 @@ export default function ProjectsSec({ activeSection, setActiveSection }) {
     if (isInView) {
       setActiveSection(sectionRef.current.id)
     }
-  }, [isInView, activeSection])
+  }, [isInView, activeSection, setActiveSection])
 
   const data = useStaticQuery(graphql`
     query  {
