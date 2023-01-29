@@ -14,7 +14,7 @@ function TestimonialCard({ node, testimodal, setTestimodal, index }) {
     <div
       className="bg-dark-gray px-5 py-10 gap-3 flex flex-col md:flex-row place-items-center border rounded-md relative border-gray-700 my-5 m-5 "
     >
-      <div className={`py-3 px-3 rounded-md flex flex-row md:flex-col gap-10 md:gap-5 place-items-center ${reverse}`}>
+      <div className={`py-3 px-3 rounded-md flex flex-row md:flex-col gap-5 place-items-center ${reverse}`}>
         <GatsbyImage
           className="w-32 h-32 z-0 rounded-full transition duration-200 hover:grayscale border-2 border-accent-blue shadow-xl shrink-0" 
           image={getImage(node.frontmatter.image1)}
@@ -35,12 +35,12 @@ function TestimonialCard({ node, testimodal, setTestimodal, index }) {
       </div>
       <div className="flex flex-col">
         <div className="flex justify-between">
-          <img alt="" className="inline h-24 w-24 rotate-180" src={quotationSVG}></img>
+          <img alt="" className="inline h-10 md:h-24 w-10 md:w-24 rotate-180" src={quotationSVG}></img>
           <div
             className="quotebox first:m-5 inline text-2xl md:text-3xl px-3 md:px-5"
             dangerouslySetInnerHTML={{ __html: node.frontmatter.excerpt }}
           />
-          <img alt="" className="inline h-24 w-24 place-self-end" src={quotationSVG}></img>
+          <img alt="" className="inline h-10 md:h-24 w-10 md:w-24 place-self-end" src={quotationSVG}></img>
         </div>
         
           <button

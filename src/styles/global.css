@@ -56,7 +56,7 @@
     @apply text-2xl py-2;
   }
   .h2 {
-    @apply my-5 mx-5 font-bold font-title text-3xl text-white after:absolute;
+    @apply my-5 mx-5 font-bold font-title text-2xl sm:text-3xl text-white after:absolute;
   }
   .cont {
     @apply px-5 text-white bg-dark-gray rounded-lg border border-accent-blue shadow-xl;
