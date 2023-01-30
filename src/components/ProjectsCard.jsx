@@ -16,7 +16,7 @@ export default function ProjectsCard({ node }) {
         href={node.frontmatter.link}
       >
         <GatsbyImage
-          className="w-64 h-72 rounded-sm shadow-lg transition duration-200 group-hover:grayscale group-hover:contrast-100"
+          className="w-64 h-72 rounded-xl shadow-lg transition duration-200 group-hover:grayscale group-hover:contrast-100"
           image={getImage(node.frontmatter.image1)}
           alt={node.frontmatter.imageAlt}
         />
