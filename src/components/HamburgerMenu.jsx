@@ -1,10 +1,10 @@
-import { motion, spring } from "framer-motion"
+import { motion} from "framer-motion"
 import { Link } from "gatsby"
 import { AnchorLink } from "gatsby-plugin-anchor-links"
 import React, { useEffect } from "react"
 import { useLockBodyScroll } from "../useLockBodyScroll"
 
-function HamburgerMenu({ hamburgerOpen, setHamburgerOpen }) {
+function HamburgerMenu({ setHamburgerOpen }) {
   useEffect(() => {
     function keyListener(e) {
       if (e.keyCode === 27) {
@@ -19,28 +19,40 @@ function HamburgerMenu({ hamburgerOpen, setHamburgerOpen }) {
   const closeModal = () => {
     setHamburgerOpen(false)
   }
-  const handleClick = e => {
-    e.preventDefault()
-    if (e.target === e.currentTarget) {
-      closeModal()
-    }
-  }
+  
 
   useLockBodyScroll()
 
   const listVariants = {
     hidden: {
       y: "-100vh",
+      opacity: 1,
     },
     shown: {
       y: 0,
-      transition: { type: spring, duration: 0.5,  delayChildren: 1, staggerChildren:1 },
-    },
+      opacity: 1,
+      transition: {
+        
+        duration: 0.5,
+        when: "beforeChildren",
+        ease: "easeOut",
+        staggerChildren: 0.1,
+      },
+    },exit: {y:"-100%", transition:{ease:"easeIn",type:"linear"}}
   }
-  const itemVariants= {
-    hidden:{ x:"100%", opacity:0},
-    shown:{ x:0, opacity:1, transition:{type: spring, duration:0.5}}
-
+  const itemVariants = {
+    hidden: { x: "-100%", opacity: 1 },
+    shown: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        bounce: 0.25,
+        duration: 1,
+        ease: "easeOut",
+      },
+    },
+    
   }
 
   return (
@@ -48,35 +60,32 @@ function HamburgerMenu({ hamburgerOpen, setHamburgerOpen }) {
       onClick={() => {
         setHamburgerOpen(false)
       }}
-      className={`flex flex-col absolute w-screen h-screen bg-black/70   z-40 backdrop-blur-md`}
+      className={`absolute w-screen h-screen bg-black/70 z-40 backdrop-blur-md`}
       variants={listVariants}
       initial={"hidden"}
       animate={"shown"}
-      exit={"hidden"}
-      
+      exit={"exit"}
     >
-      <motion.ul>
-        <motion.li>
-          <Link
-            className="py-3 px-5 transition duration-100 hover:bg-gray-800"
-            to="/"
-          >
+      <motion.ul
+        id="hamburgerLinks"
+        className="flex flex-col h-full divide-y divide-accent-blue/20 divide-w-24"
+        variants={listVariants}
+        initial={"hidden"}
+        animate={"shown"}
+        exit={"exit"}
+      >
+        <motion.li variants={itemVariants}>
+          <Link className="" to="/">
             Home
           </Link>
         </motion.li>
-        <motion.li>
-          <AnchorLink
-            className="py-3 px-5 transition duration-100 hover:bg-gray-800"
-            to="/#about"
-          >
+        <motion.li variants={itemVariants}>
+          <AnchorLink className="" to="/#about">
             About
           </AnchorLink>
         </motion.li>
-        <motion.li>
-          <AnchorLink
-            className="py-3 px-5 transition duration-100 hover:bg-gray-800"
-            to="/#projects"
-          >
+        <motion.li variants={itemVariants}>
+          <AnchorLink className="" to="/#projects">
             Projects
           </AnchorLink>
         </motion.li>

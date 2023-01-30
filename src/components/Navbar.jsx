@@ -13,14 +13,9 @@ function Navbar({ navbarChange }) {
   const handleHamburger = () => {
     setHamburgerOpen(!hamburgerOpen)
   }
-  const handleKeyDown = e => {
-    if (e.key == "Escape") {
-      handleHamburger()
-    }
-  }
 
   return (
-    <header className="fixed w-full top-0 z-50" onKeyDown={handleKeyDown}>
+    <header className="fixed w-screen top-0 z-50">
       <motion.nav
         className="px-5 py-3 sm:h-32 bg-black text-white flex justify-between items-center z-50 relative"
         animate={{
@@ -96,7 +91,6 @@ function Navbar({ navbarChange }) {
             />
           </svg>
         </button>
-      
       </motion.nav>
       {/* <div
           onClick={() => {
@@ -126,7 +120,8 @@ function Navbar({ navbarChange }) {
           >
             Projects
           </AnchorLink>
-        </div> */}<AnimatePresence>
+        </div> */}
+      <AnimatePresence>
         {hamburgerOpen && (
           <HamburgerMenu
             hamburgerOpen={hamburgerOpen}

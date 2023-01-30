@@ -84,6 +84,10 @@
   .quotebox :first-child {
     @apply mt-0;
   }
+  #hamburgerLinks a{
+    @apply block py-10 px-5 hover:bg-gray-800  text-5xl font-sans font-thin text-right w-full h-full
+  }
+  
   
 }
 
