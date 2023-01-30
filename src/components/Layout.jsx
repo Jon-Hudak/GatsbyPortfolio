@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react"
 import Navbar from "./Navbar"
 import { AnchorLink } from "gatsby-plugin-anchor-links"
-import { MDXProvider } from "@mdx-js/react"
 
 function Layout({ children, background, className, footerClass }) {
   const [navbarChange, setNavbarChange] = useState(false)
@@ -18,13 +17,13 @@ function Layout({ children, background, className, footerClass }) {
     window.addEventListener("scroll", changeColor)
   }, [])
 
- 
-
   return (
-    <div className={` flex min-h-screen flex-col layout ${background}`}>
+    <div
+      className={`overflow-hidden flex min-h-screen flex-col layout ${background}`}
+    >
       <Navbar navbarChange={navbarChange} />
-      <div className="flex-1 grow mt-24">
-        <div className={className}><MDXProvider>{children}</MDXProvider></div>
+      <div className="flex-1 grow mt-24 ">
+        <div className={`${className} `}>{ children }</div>
       </div>
       <AnchorLink
         to="#top"
@@ -33,7 +32,9 @@ function Layout({ children, background, className, footerClass }) {
         <span className="m-auto text-4xl font-bold font-sans">^</span>
       </AnchorLink>
 
-      <footer className={`h-20 flex flex-col border-t-2 border-gray-600 bg-black mt-3 z-40 ${footerClass}`}>
+      <footer
+        className={`h-20 flex flex-col border-t-2 border-gray-600 bg-black mt-3 z-40 ${footerClass}`}
+      >
         <p className="text-right mt-auto px-3 py-3 text-white">
           Copyright 2022 Jon Hudak Development
         </p>

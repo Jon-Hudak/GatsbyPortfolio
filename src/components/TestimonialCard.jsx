@@ -41,7 +41,7 @@ function TestimonialCard({ node, testimodal, setTestimodal, index }) {
           </h4>
         </div>
       </div>
-      <div className="flex flex-col">
+      <div className="flex flex-col pb-10">
         <motion.div
           className="flex justify-between"
           variants={contVariants}
