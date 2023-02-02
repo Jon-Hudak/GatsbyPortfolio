@@ -107,7 +107,7 @@ function Hero() {
             </motion.button>
           </div>
           <motion.img
-            className="lg:absolute lg:bottom-0 lg:-right-24 lg:w-[30rem] lg:rounded-none lg:border-none lg:shadow-none z-10 w-48 object-cover object-top rounded-full shrink-0 border-2 border-accent-blue shadow-xl"
+            className="lg:absolute lg:bottom-0 lg:-right-24 lg:w-[30rem] lg:rounded-none lg:border-none lg:shadow-none z-10 w-48 object-cover object-top rounded-full shrink-0 border-2 border-accent-blue shadow-xl pointer-none"
             alt="Me with a glitch effect"
             src={heroPic}
             drag
@@ -140,7 +140,7 @@ function Hero() {
           <AnimatePresence>
             {contactOpen && (
               <motion.div
-                className="overflow-hidden bg-black place-content-center flex-col rounded-lg origin-top border border-gray-600"
+                className="max-w-2xl overflow-hidden bg-black place-content-center flex-col rounded-lg origin-top border border-gray-600"
                 variants={contactVariant}
                 custom={0}
                 initial={"hidden"}
