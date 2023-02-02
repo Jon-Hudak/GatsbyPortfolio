@@ -115,7 +115,7 @@ function Hero() {
             dragTransition={{ bounceStiffness: 1, bounceDamping: 3 }}
             variants={variants}
             custom={4}
-            initial={["hidden", { x: 100, rotate: 45 }]}
+            initial={["hidden", { x: 100}]}
             animate={"shown"}
             whileTap={"drag"}
             tapCancel={"dragEnd"}
