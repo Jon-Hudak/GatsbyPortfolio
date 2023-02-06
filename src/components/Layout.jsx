@@ -70,9 +70,7 @@ function Layout({ children, background, className, footerClass }) {
       <footer
         className={`min-h-20 flex flex-col border-t-2 border-gray-600 bg-black mt-3 z-40 ${footerClass}`}
       >
-        <p sr-hidden className="text-left mt-auto px-3 py-3 text-white text-xs">
-          Did you know you can click and drag my picture at the top of the page?
-        </p>
+        
         <p className="text-right mt-auto px-3 py-3 text-white">
           Copyright 2023 Jon Hudak Development
         </p>
