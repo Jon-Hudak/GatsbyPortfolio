@@ -13,10 +13,10 @@ require("dotenv").config({
  */
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
-    siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+    title: `Jon Hudak Web Development`,
+    description: `Get peace of mind with a site made the right way, with a focus on user experience, accessibility, and SEO.`,
+    author: `Jon Hudak`,
+    siteUrl: `https://jonhudak.dev`,
   },
   plugins: [
     "gatsby-plugin-netlify",
