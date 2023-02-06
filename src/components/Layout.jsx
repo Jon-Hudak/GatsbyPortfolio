@@ -43,7 +43,7 @@ function Layout({ children, background, className, footerClass }) {
           initial={{ y: "15rem" }}
           animate={{ y: showToTop ? "0" : "15rem" }}
         >
-          <AnchorLink to="#top" className=" flex text-center p-auto">
+          <AnchorLink aria-label="Top of page"to="#top" className=" flex text-center p-auto">
             <div className="m-auto p-4 w-full text-4xl font-bold font-sans -rotate-90">
               <svg
                 className="svg-shadow"

@@ -28,7 +28,6 @@ function InfoCard({ title, children, icon, typeCursor, index }) {
         wrapper="div"
         className="flex place-self-center h-24 w-24"
       />
-      {/* <img className="w-20 mx-auto stroke-green-500 fill-red-500" src={icon} alt=""/> */}
       <p className="card-info  mx-auto text-white/70 mt-2 text-lg flex flex-col shrink">
         {children}
       </p>

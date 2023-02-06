@@ -6,7 +6,7 @@ export default function getPlayers(values, first, headers){
   
 for (let i = first; i < values[headers].length; i++) {
     players[values[headers][i]] = false;
-  //console.log(players);
+ 
   } 
   
   return players;

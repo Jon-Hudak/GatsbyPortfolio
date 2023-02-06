@@ -40,10 +40,7 @@ function Hero() {
     <section
       id="hero"
       className="flex flex-col place-items-center w-auto mt-2 mx-1 md:mt-5 max-w-screen md:max-w-5xl overflow-hidden"
-      // initial={{ opacity: 0, y: 50 }}
-      // whileInView={{ opacity: 1, y: 0 }}
-      // viewport={{ once: true, margin: "0px 0px -15% 0px" }}
-      // transition={{ duration: 0.5 }}
+      
     >
       <div className="overflow-hidden border border-accent-blue rounded-lg">
         <div className="cont py-16 px-0 lg:relative lg:w-[1000px]">
@@ -119,20 +116,7 @@ function Hero() {
             </motion.video>
             
 
-            {/* <motion.img
-            className="z-10 h-48 w-48 lg:h-64 lg:w-64 object-cover object-top rounded-full shrink-0 border-2 border-accent-blue shadow-xl cursor-grab hover:grayscale"
-            alt="Me with a glitch effect"
-            src={heroPic}
-            drag
-            dragSnapToOrigin
-            dragTransition={{ bounceStiffness: 1, bounceDamping: 3 }}
-            variants={variants}
-            custom={4}
-            initial={["hidden", { x: 100, rotate: 45 }]}
-            animate={"shown"}
-            whileTap={"drag"}
-            tapCancel={"dragEnd"}
-          /> */}
+            
           </div>
 
           <motion.div className=" bg-opacity-50 mx-5 my-5 place-self-center">

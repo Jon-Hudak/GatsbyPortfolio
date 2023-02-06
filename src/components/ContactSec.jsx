@@ -147,17 +147,7 @@ export default function ContactSec({ popup }) {
           value={formState.email}
           placeholder="Email"
         /></label>
-        {/* <label htmlFor="phone" className="formLabel">Phone:</label>
-         <input
-          id="phone"
-          name="phone"
-          type="phone"
-          className={formState.phoneValid ? "inputField outline-green-500" : "inputField outline-red-600"}
-          onBlur={fieldValidation}
-          onChange={handleChange}
-          value={formState.phone}
-          placeholder="Phone"
-        /> */}
+        
         <label className="formLabel">
           Message:
         

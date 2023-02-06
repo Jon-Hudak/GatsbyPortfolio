@@ -4,11 +4,9 @@ import { StaticImage } from "gatsby-plugin-image"
 import { AnchorLink } from "gatsby-plugin-anchor-links"
 import { AnimatePresence, motion } from "framer-motion"
 import HamburgerMenu from "./HamburgerMenu"
-import Logo from "../images/logo-no-background.svg"
+import Logo from "../images/logo-no-background.inline.svg"
 
 function Navbar({ navbarChange }) {
-  const logo = "../images/logo-no-background.svg"
-  //const smallLogo = "../images/logo-only.png"
   const [hamburgerOpen, setHamburgerOpen] = useState(false)
 
   const handleHamburger = () => {
@@ -38,7 +36,7 @@ function Navbar({ navbarChange }) {
           </motion.div>
         </Link>
 
-        {/* <h1 className="text-4xl font-semibold"></h1> */}
+        
 
         <div className="hidden md:flex md:w-72 md:justify-between md:text-xl">
           <AnchorLink
@@ -81,35 +79,7 @@ function Navbar({ navbarChange }) {
           </svg>
         </button>
       </motion.nav>
-      {/* <div
-          onClick={() => {
-            setHamburgerOpen(false)
-          }}
-          className={`md:hidden  w-screen h-screen divide-y divide-gray-700 flex-col absolute right-0 text-right text-5xl bg-black bg-opacity-90 border border-gray-700 ${
-            hamburgerOpen
-              ? "flex origin-top animate-menuOpen"
-              : "hidden origin-top animate-menuClose"
-          }`}
-        >
-          <Link
-            className="py-3 px-5 transition duration-100 hover:bg-gray-800"
-            to="/"
-          >
-            Home
-          </Link>
-          <AnchorLink
-            className="py-3 px-5 transition duration-100 hover:bg-gray-800"
-            to="/#about"
-          >
-            About
-          </AnchorLink>
-          <AnchorLink
-            className="py-3 px-5 transition duration-100 hover:bg-gray-800"
-            to="/#projects"
-          >
-            Projects
-          </AnchorLink>
-        </div> */}
+      
       <AnimatePresence>
         {hamburgerOpen && (
           <HamburgerMenu
