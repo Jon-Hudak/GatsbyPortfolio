@@ -10,7 +10,6 @@ function InfoCard({ title, children, icon, typeCursor, index }) {
 
   return (
     <motion.div
-      role="card"
       className="card mt-3 mx-auto md:mt-5 py-3 cont flex flex-col max-w-sm lg:max-w-xs"
       initial={{ opacity: 0, x: 50 }}
       animate={{ opacity: 1, x: 0 }}

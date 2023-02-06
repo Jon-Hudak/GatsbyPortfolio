@@ -27,14 +27,13 @@ function Navbar({ navbarChange }) {
         }}
         transition={{ duration: 0.5 }}
       >
-        <Link to="/">
+        <Link to="/" aria-label="Homepage">
           <motion.div
-            aria-hidden
             initial={{ width: 50 }}
             animate={{ width: navbarChange ? 90 : 200 }}
             transition={{ duration: 0.5 }}
           >
-            <Logo className="h-full w-full transition duration-100 hover:grayscale hover:contrast-0 "/>
+            <Logo alt="Logo" className="h-full w-full transition duration-100 hover:grayscale hover:contrast-0 "/>
             
           </motion.div>
         </Link>
