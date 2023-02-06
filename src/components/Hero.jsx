@@ -98,21 +98,22 @@ function Hero() {
               Get Your Free Consultation
             </motion.button>
           </div>
-          <div className="imgContainer rounded-full overflow-hidden">
+          <motion.div className="imgContainer rounded-full overflow-hidden"
+          drag
+          dragSnapToOrigin
+          dragTransition={{ bounceStiffness: 1, bounceDamping: 3 }}
+          variants={variants}
+          custom={4}
+          initial={["hidden", { x: 100, rotate:45}]}
+          animate={"shown"}
+          whileTap={"drag"}
+          tapCancel={"dragEnd"}>
           <motion.img
             className="imgShadow lg:imgShadow-sm lg:absolute lg:bottom-0 lg:-right-24 lg:w-[30rem] lg:rounded-none lg:border-none lg:shadow-none z-10 w-48 object-cover object-top rounded-full shrink-0 border-2 border-accent-blue shadow-xl pointer-none"
             alt="Me with a glitch effect overflow-hidden "
             src={heroPic}
-            drag
-            dragSnapToOrigin
-            dragTransition={{ bounceStiffness: 1, bounceDamping: 3 }}
-            variants={variants}
-            custom={4}
-            initial={["hidden", { x: 100}]}
-            animate={"shown"}
-            whileTap={"drag"}
-            tapCancel={"dragEnd"}
-          /></div>
+            
+          /></motion.div>
           {/* <motion.img
             className="z-10 h-48 w-48 lg:h-64 lg:w-64 object-cover object-top rounded-full shrink-0 border-2 border-accent-blue shadow-xl cursor-grab hover:grayscale"
             alt="Me with a glitch effect"
