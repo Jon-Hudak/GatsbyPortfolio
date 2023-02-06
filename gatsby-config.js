@@ -63,6 +63,14 @@ module.exports = {
         offset: -30,
       },
     },
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /images/
+        }
+      }
+    }
     // {
     //   resolve: "gatsby-plugin-mdx",
     //   options: {
