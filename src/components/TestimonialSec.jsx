@@ -58,7 +58,6 @@ export default function TestimonialSec({
   `)
   const nodes = data.allMarkdownRemark.edges
   
-  console.log(nodes)
   return (
     <motion.section
       ref={sectionRef}
