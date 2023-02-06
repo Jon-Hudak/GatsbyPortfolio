@@ -1,10 +1,10 @@
 import React, { useState } from "react"
 import heroPic from "../images/glitchLarge.webm"
-import heroPicSmall from "../images/glitchSmall.webm"
 import ContactSec from "./ContactSec"
 import { AnimatePresence, motion, useInView } from "framer-motion"
 import { TypeAnimation } from "react-type-animation"
 import { useRef } from "react"
+
 
 function Hero() {
   const h1Ref = useRef(null)

@@ -4,6 +4,7 @@ import { StaticImage } from "gatsby-plugin-image"
 import { AnchorLink } from "gatsby-plugin-anchor-links"
 import { AnimatePresence, motion } from "framer-motion"
 import HamburgerMenu from "./HamburgerMenu"
+import Logo from "../images/logo-no-background.svg"
 
 function Navbar({ navbarChange }) {
   const logo = "../images/logo-no-background.svg"
@@ -33,19 +34,8 @@ function Navbar({ navbarChange }) {
             animate={{ width: navbarChange ? 90 : 200 }}
             transition={{ duration: 0.5 }}
           >
-            <StaticImage
-              imgClassName=""
-              className="h-full w-full transition duration-100 hover:grayscale hover:contrast-0 "
-              layout="constrained"
-              src={logo}
-              alt="Site Logo"
-              role="logo"
-            />
-            {/* <StaticImage
-        className="w-16 sm:hidden transition duration-100 hover:grayscale hover:contrast-0"
-        src={smallLogo}
-        alt="Small Site Logo"
-      /> */}
+            <Logo className="h-full w-full transition duration-100 hover:grayscale hover:contrast-0 "/>
+            
           </motion.div>
         </Link>
 
