@@ -87,6 +87,26 @@
   #hamburgerLinks a{
     @apply block py-10 px-5 hover:bg-gray-800  text-5xl font-sans font-thin text-right w-full h-full
   }
+  .imgShadow{
+    -webkit-filter: drop-shadow(1px 1px 0px 1px #43B0FF);
+                  
+  filter: drop-shadow(1px 2px 15px #43B0FF); 
+           
+  }
+  .imgShadow-none{
+    -webkit-filter: drop-shadow(0px 0px 0);
+                  
+  filter: drop-shadow(px 0px 0) ;
+           
+  }
+
+  .imgShadow-sm
+    {
+      -webkit-filter: drop-shadow(1px 1px 1px  #43B0FF);
+                    
+    filter: drop-shadow(0px 0px 4px #43B0FF); 
+             
+    }
   
   
 }

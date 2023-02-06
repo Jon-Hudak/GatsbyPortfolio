@@ -37,7 +37,7 @@ function Hero() {
   return (
     <section
       id="hero"
-      className="flex flex-col place-items-center w-auto mt-2 mx-1 md:mt-5 max-w-screen md:max-w-5xl overflow:hidden"
+      className="flex flex-col place-items-center w-auto mt-2 mx-1 md:mt-5 max-w-screen md:max-w-5xl overflow-hidden"
       // initial={{ opacity: 0, y: 50 }}
       // whileInView={{ opacity: 1, y: 0 }}
       // viewport={{ once: true, margin: "0px 0px -15% 0px" }}
@@ -77,16 +77,8 @@ function Hero() {
               )}
             </h1>
             <motion.p
-              className="font-sans mt-5 text-xl sm:text-2xl text-center lg:text-left cursor-grab"
-              drag
-              dragSnapToOrigin
-              dragTransition={{ bounceStiffness: 1, bounceDamping: 3 }}
-              variants={variants}
-              custom={1}
-              initial={"hidden"}
-              animate={"shown"}
-              whileTap={"drag"}
-              tapCancel={"dragEnd"}
+              className="font-sans mt-5 text-xl sm:text-2xl text-center lg:text-left"
+              
             >
               Convert more customers with an expert focus on user experience and
               SEO!
@@ -106,9 +98,10 @@ function Hero() {
               Get Your Free Consultation
             </motion.button>
           </div>
+          <div className="imgContainer rounded-full overflow-hidden">
           <motion.img
-            className="lg:absolute lg:bottom-0 lg:-right-24 lg:w-[30rem] lg:rounded-none lg:border-none lg:shadow-none z-10 w-48 object-cover object-top rounded-full shrink-0 border-2 border-accent-blue shadow-xl pointer-none"
-            alt="Me with a glitch effect"
+            className="imgShadow lg:imgShadow-sm lg:absolute lg:bottom-0 lg:-right-24 lg:w-[30rem] lg:rounded-none lg:border-none lg:shadow-none z-10 w-48 object-cover object-top rounded-full shrink-0 border-2 border-accent-blue shadow-xl pointer-none"
+            alt="Me with a glitch effect overflow-hidden "
             src={heroPic}
             drag
             dragSnapToOrigin
@@ -119,7 +112,7 @@ function Hero() {
             animate={"shown"}
             whileTap={"drag"}
             tapCancel={"dragEnd"}
-          />
+          /></div>
           {/* <motion.img
             className="z-10 h-48 w-48 lg:h-64 lg:w-64 object-cover object-top rounded-full shrink-0 border-2 border-accent-blue shadow-xl cursor-grab hover:grayscale"
             alt="Me with a glitch effect"

@@ -57,7 +57,7 @@ function TestimonialCard({ node, testimodal, setTestimodal, index }) {
             
           />
           <motion.div
-            className="quotebox first:m-5 inline text-2xl md:text-3xl px-3 md:px-5"
+            className="quotebox inline text-xl sm:text-2xl md:text-3xl px-3 md:px-5"
             dangerouslySetInnerHTML={{ __html: node.frontmatter.excerpt }}
             
           />
