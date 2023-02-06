@@ -39,12 +39,11 @@ function Layout({ children, background, className, footerClass }) {
       </div>
       <AnimatePresence>
         <motion.div
-          aria-hidden
           className="bg-blue-500 h-16 w-16 fixed bottom-16 right-16 rounded-full cursor-pointer shadow-2xl z-50"
           initial={{ y: "15rem" }}
           animate={{ y: showToTop ? "0" : "15rem" }}
         >
-          <AnchorLink to="#top" className=" flex text-center p-auto">
+          <AnchorLink title="Top of Page" to="#top" className=" flex text-center p-auto">
             <div className="m-auto p-4 w-full text-4xl font-bold font-sans -rotate-90">
               <svg
                 className="svg-shadow"
