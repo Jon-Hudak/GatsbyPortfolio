@@ -39,11 +39,11 @@ function Layout({ children, background, className, footerClass }) {
       </div>
       <AnimatePresence>
         <motion.div
-          className="bg-blue-500 h-16 w-16 fixed bottom-24 right-16 rounded-full cursor-pointer shadow-2xl"
+          className="bg-blue-500 h-16 w-16 fixed bottom-16 right-16 rounded-full cursor-pointer shadow-2xl z-50"
           initial={{ y: "15rem" }}
           animate={{ y: showToTop ? "0" : "15rem" }}
         >
-          <AnchorLink to="#top" className=" flex text-center p-auto ">
+          <AnchorLink to="#top" className=" flex text-center p-auto">
             <div className="m-auto p-4 w-full text-4xl font-bold font-sans -rotate-90">
               <svg
                 className="svg-shadow"
@@ -68,8 +68,11 @@ function Layout({ children, background, className, footerClass }) {
       </AnimatePresence>
 
       <footer
-        className={`h-20 flex flex-col border-t-2 border-gray-600 bg-black mt-3 z-40 ${footerClass}`}
+        className={`min-h-20 flex flex-col border-t-2 border-gray-600 bg-black mt-3 z-40 ${footerClass}`}
       >
+        <p sr-hidden className="text-left mt-auto px-3 py-3 text-white text-xs">
+          Did you know you can click and drag my picture at the top of the page?
+        </p>
         <p className="text-right mt-auto px-3 py-3 text-white">
           Copyright 2023 Jon Hudak Development
         </p>

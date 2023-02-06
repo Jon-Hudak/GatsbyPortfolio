@@ -57,3 +57,20 @@ export default function Home() {
     </main>
   )
 }
+export function Head() {
+  return (
+    <>
+      <title>Jon Hudak Web Development</title>
+      <meta
+        name="description"
+        content="Get peace of mind with a site made the right way, with a focus on user experience, accessibility, and SEO."
+      />
+      <meta
+        name="keywords"
+        content="Website, Custom, Portfolio, Site, Build, Create, React, Gatsby,Wordpress, Wix, HTML, CSS, JavaScript "
+      />
+      <meta name="author" content="Jon Hudak" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </>
+  )
+}
