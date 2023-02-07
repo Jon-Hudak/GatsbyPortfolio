@@ -7,6 +7,8 @@ import ProjectsSec from "../components/ProjectsSec"
 import ContactSec from "../components/ContactSec"
 import Testimodal from "../components/Testimodal"
 import { AnimatePresence } from "framer-motion"
+import ogImg from "../images/ogMeta.jpg"
+
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState(0)
@@ -72,7 +74,7 @@ export function Head() {
       <meta name="author" content="Jon Hudak" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta property="og:title" content="Get more customers with a custom-made website!" />
-      <meta property="og:image" content="https://jonhudak.dev/img/ogmeta" />
+      <meta property="og:image" content={`https://jonhudak.dev/${ogImg}`} />
     </>
   )
 }
