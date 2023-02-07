@@ -7,7 +7,7 @@ import ProjectsSec from "../components/ProjectsSec"
 import ContactSec from "../components/ContactSec"
 import Testimodal from "../components/Testimodal"
 import { AnimatePresence } from "framer-motion"
-import ogImg from "../images/ogMeta.jpg"
+import ogImg from "../images/ogPhoto.webp"
 
 
 export default function Home() {
@@ -75,6 +75,12 @@ export function Head() {
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta property="og:title" content="Jon Hudak Web Development" />
       <meta property="og:image" content={`https://jonhudak.dev${ogImg}`} />
+      <meta property="og:title" content="Jon Hudak Web Development" />
+      <meta property="og:url" content="https://jonhudak.dev" />
+      <meta property="og:type" content="website" />
+      <meta property="og:description" content="Attract more customers with a custom-made website!" />
+
+
     </>
   )
 }
