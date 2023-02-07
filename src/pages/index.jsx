@@ -65,7 +65,7 @@ export function Head() {
       <title>Jon Hudak Web Development</title>
       <meta
         name="description"
-        content="Attract more customers with a custom-made website"
+        content="Attract more customers with a custom-made website!"
       />
       <meta
         name="keywords"
@@ -74,7 +74,7 @@ export function Head() {
       <meta name="author" content="Jon Hudak" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta property="og:title" content="Jon Hudak Web Development" />
-      <meta property="og:image" content={`https://jonhudak.dev/${ogImg}`} />
+      <meta property="og:image" content={`https://jonhudak.dev${ogImg}`} />
     </>
   )
 }
