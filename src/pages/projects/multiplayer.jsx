@@ -47,7 +47,7 @@ export default function Multiplayer() {
         initial={"hidden"}
         animate={"shown"}
         exit={"exit"}
-        transition={{layout:{type:"spring", duration:0.2}}}
+        transition={{layout:{type:"spring", duration:0.6}}}
       >
         {game.title}
       </motion.li>
@@ -113,14 +113,15 @@ export default function Multiplayer() {
       opacity: 1,
       transition: {
         type: "spring",
-        duration: 0.3,
+        duration: 0.5,
+        delay:i*0.02,
         bounce: 0.2,
         ease: "easeOut",
       },
     }),
     exit: {
       scaleY:0,
-      opacity: 1,
+      opacity: 0,
       transition: {
         type: "spring",
         duration: 1,

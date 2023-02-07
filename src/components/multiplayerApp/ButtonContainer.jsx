@@ -38,8 +38,7 @@ function ButtonContainer({ playerList, filter, setFilter }) {
   }
   function handleClick(e, filtered) {
     const toggle = !filtered[e]
-
-    console.log(e, toggle)
+    window.scrollTo(0, 0);
 
     setFilter(old => ({ ...old, [e]: toggle }))
   }

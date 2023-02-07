@@ -30,7 +30,7 @@ function Layout({ children, background, className, footerClass }) {
   }
 
   return (
-    <div
+    <div id="top"
       className={`overflow-hidden flex min-h-screen flex-col layout ${background}`}
     >
       <Navbar navbarChange={navbarChange} />
