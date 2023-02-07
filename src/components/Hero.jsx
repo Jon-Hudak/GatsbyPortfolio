@@ -10,6 +10,7 @@ function Hero() {
   const h1Ref = useRef(null)
   const h1IsInView = useInView(h1Ref)
   const [contactOpen, setContactOpen] = useState(false)
+  const [isSmall, setIsSmall] = useState(()=> window.innerWidth<1024)
   const handleContact = () => {
     setContactOpen(!contactOpen)
   }
@@ -107,7 +108,7 @@ function Hero() {
               dragTransition={{ bounceStiffness: 1, bounceDamping: 3 }}
               variants={variants}
               custom={4}
-              initial={["hidden", { x: 100 }]}
+              initial={["hidden", isSmall?{ x: 100,  rotate:45 }:{x:100}]}
               animate={"shown"}
               whileTap={"drag"}
               tapCancel={"dragEnd"}
