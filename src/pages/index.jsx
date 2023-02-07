@@ -71,6 +71,8 @@ export function Head() {
       />
       <meta name="author" content="Jon Hudak" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta property="og:title" content="Get more customers with a custom-made website!" />
+      <meta property="og:image" content="../images/ogMeta.jpg" />
     </>
   )
 }
