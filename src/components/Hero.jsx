@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import heroPic from "../images/glitchLarge.webm"
 import ContactSec from "./ContactSec"
 import { AnimatePresence, motion, useInView } from "framer-motion"
@@ -10,7 +10,13 @@ function Hero() {
   const h1Ref = useRef(null)
   const h1IsInView = useInView(h1Ref)
   const [contactOpen, setContactOpen] = useState(false)
-  const [isSmall, setIsSmall] = useState(()=> window.innerWidth<1024)
+  const [isSmall, setIsSmall] = useState()
+
+  useEffect(() => {
+    setIsSmall(window.innerWidth<1024);
+  }, [])
+  
+
   const handleContact = () => {
     setContactOpen(!contactOpen)
   }
