@@ -5,34 +5,61 @@ import { AnimatePresence, motion, useInView } from "framer-motion"
 import { TypeAnimation } from "react-type-animation"
 import { useRef } from "react"
 
-
 function Hero() {
   const h1Ref = useRef(null)
   const h1IsInView = useInView(h1Ref)
   const [contactOpen, setContactOpen] = useState(false)
-  const [isSmall, setIsSmall] = useState()
+  let isSmall = false
+  const isBrowser = typeof window !== "undefined"
 
-  useEffect(() => {
-    setIsSmall(window.innerWidth<1024);
-  }, [])
-  
+  if (isBrowser) {
+    isSmall = window.innerWidth < 1024
+  }
 
   const handleContact = () => {
     setContactOpen(!contactOpen)
   }
-
   const variants = {
     hidden: { opacity: 0, x: 50 },
     shown: i => ({
       opacity: 1,
       x: 0,
       y: 0,
-      rotate: 0,
+
       transition: { delay: i * 0.5, duration: 1, ease: "easeOut" },
     }),
     drag: { cursor: "grabbing", transition: { delay: 0 } },
     dragEnd: { cursor: "grab", opacity: 0.5, transition: { delay: 0 } },
   }
+
+  const imgVariants = isSmall
+    ? {
+        hidden: { opacity: 0, x: 100, rotate: 45 },
+        shown: i => ({
+          opacity: 1,
+          x: 0,
+          y: 0,
+          rotate: 0,
+
+          transition: { delay: i * 0.5, duration: 1, ease: "easeOut" },
+        }),
+        drag: { cursor: "grabbing", transition: { delay: 0 } },
+        dragEnd: { cursor: "grab", opacity: 0.5, transition: { delay: 0 } },
+      }
+    : {
+        hidden: { opacity: 0, x: 100, rotate: 0 },
+        shown: i => ({
+          opacity: 1,
+          x: 0,
+          y: 0,
+          rotate: 0,
+
+          transition: { delay: i * 0.5, duration: 1, ease: "easeOut" },
+        }),
+        drag: { cursor: "grabbing", transition: { delay: 0 } },
+        dragEnd: { cursor: "grab", opacity: 0.5, transition: { delay: 0 } },
+      }
+
   const contactVariant = {
     hidden: { opacity: 1, height: 0, transition: { duration: 1.5 } },
     shown: i => ({
@@ -47,7 +74,6 @@ function Hero() {
     <section
       id="hero"
       className="flex flex-col place-items-center w-auto mt-2 mx-1 md:mt-5 max-w-screen md:max-w-5xl overflow-hidden"
-      
     >
       <div className="overflow-hidden border border-accent-blue rounded-lg">
         <div className="cont py-16 px-0 lg:relative lg:w-[1000px]">
@@ -112,18 +138,15 @@ function Hero() {
               drag
               dragSnapToOrigin
               dragTransition={{ bounceStiffness: 1, bounceDamping: 3 }}
-              variants={variants}
+              variants={imgVariants}
               custom={4}
-              initial={["hidden", isSmall?{ x: 100,  rotate:45 }:{x:100}]}
+              initial={["hidden", { x: 100 }]}
               animate={"shown"}
               whileTap={"drag"}
               tapCancel={"dragEnd"}
             >
               <source src={heroPic} type="video/webm" />
             </motion.video>
-            
-
-            
           </div>
 
           <motion.div className=" bg-opacity-50 mx-5 my-5 place-self-center">
