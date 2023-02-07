@@ -37,7 +37,7 @@ function Navbar({ navbarChange }) {
 
         
 
-        <div className="hidden md:flex md:w-72 md:justify-between md:text-xl">
+        <div className="hidden md:flex md:w-72 md:justify-between md:text-xl px-5">
           <AnchorLink
             className="transition duration-200 hover:text-yellow-600"
             to="/#about"
