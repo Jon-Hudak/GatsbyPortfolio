@@ -67,25 +67,30 @@ export default function Multiplayer() {
       opacity: 1,
       y: 0,
       transition: {
-        when:"beforeChildren",
+        when: "beforeChildren",
         delay: 1,
         duration: 1,
         ease: "easeOut",
-        
       },
-    },
-  }
-  const itemVariants = {
-    hidden: { x: "100%", opacity: 0 },
-    shown: {
-      x: 0,
-      opacity: 1,
-      transition: { duration: 0.5, ease: "easeIn" },
     },
     exit: {
       x: "100%",
       opacity: 0,
       transition: { duration: 0.5, ease: "easeIn" },
+    },
+  }
+  const itemVariants = {
+    hidden: { y:"100vh" },
+    shown: (i)=>( {
+      x: 0,
+      y:0,
+      opacity: 1,
+      transition: { type: "spring", delay:0.04*i ,duration: 0.5, bounce: 0.2, ease: "easeIn" },
+    }),
+    exit: {
+      x: "50vw",
+      opacity:0,
+      transition: { type: "spring", duration: 0.5, bounce: 0.3, ease: "easeOut" },
     },
   }
 
@@ -101,17 +106,21 @@ export default function Multiplayer() {
           filter={filter}
           setFilter={setFilter}
         />
-        <motion.ul
-          id="gameListUl"
-          className="mt-2 pr-1 p-1 grow auto-rows-[1fr] auto-cols-[1fr] col-spa-4 grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-1 bg-black/90"
-          variants={listVariants}
-          initial={"hidden"}
-          animate={"shown"}
-        >
-          <AnimatePresence>
-            {games.map(games => renderGameList(games, filter))}
-          </AnimatePresence>
-        </motion.ul>
+
+        {true && (
+          <motion.ul
+          
+            id="gameListUl"
+            className="mt-2 pr-1 p-1 grow auto-rows-[1fr] auto-cols-[1fr] col-spa-4 grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-1 bg-black/90"
+            key="ul"
+            variants={listVariants}
+            initial={"shown"}
+            animate={"shown"}
+            exit={"exit"}
+          ><AnimatePresence mode="popLayout">
+            {games.map(( games, i )=> generateGameList(games, filter,i))}</AnimatePresence>
+          </motion.ul>
+        )}
       </div>
     </Layout>
   )
