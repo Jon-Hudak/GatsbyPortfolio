@@ -16,6 +16,7 @@ export default function Multiplayer() {
   const [filter, setFilter] = useState({})
   const [playerList, setPlayerList] = useState([])
   const [games, setGames] = useState([])
+  const [filteredGames, setFilteredGames] = useState(games)
 
   useEffect(() => {
     async function promiseHell() {
@@ -28,38 +29,63 @@ export default function Multiplayer() {
       setPlayerList(Object.keys(players))
     })
   }, [])
-  //console.log(games)
-
-  function renderGameList(value, filter) {
-    if (value[TITLE_INDEX] !== "Title") {
-      for (const p in filter) {
-        let regEx = new RegExp(`\\b${p}\\b`, "i") // "/" needs escaped in string literal. Translates to /\b${p}\b/
-        //console.log(value[TITLE_INDEX], p)
-        if (filter[p] === true) {
-          if (!value.some(x => regEx.test(x))) {
-            return null
+  useEffect(() => {
+    generateGameList(games, filter)
+  }, [games, filter])
+  
+  console.log(filteredGames);
+  function renderGameList(game,i) {
+    return (
+      <motion.li
+      layout
+        key={game.title}
+        className={`py-1 tall:py-1 tall:md:py-5  px-5 tall:text-xl tall:md:text-2xl max-h-24  font-bold flex place-items-center bg-lime-600 border ${
+          game.free ? "border-4 border-orange-600" : "border-black"
+        }`}
+        variants={itemVariants}
+        custom={i}
+        initial={"hidden"}
+        animate={"shown"}
+        exit={"exit"}
+        transition={{layout:{type:"spring", duration:0.2}}}
+      >
+        {game.title}
+      </motion.li>
+    )
+  }
+  function generateGameList(games, filter) {
+    const list=[]
+    let isFiltered=false;
+    for (const game in games) {
+      isFiltered=false;
+            
+      if (games[game][TITLE_INDEX]!=="Title") {
+      
+        
+        for (const p in filter) {
+          console.log(p)
+          
+          let regEx = new RegExp(`\\b${p}\\b`, "i") // "/" needs escaped in string literal. Translates to /\b${p}\b/
+          
+          if (filter[p] === true) {
+            
+            if (!games[game].some(x => regEx.test(x))) {
+              
+              isFiltered=true;
+            }
           }
+          //console.log(filter,isFiltered,games[game]);
         }
+        let isFree = false
+        if (games[game][FREE_INDEX]) {
+          isFree = true
+        }
+        if(!isFiltered){
+          list.push({title:games[game][TITLE_INDEX], free: isFree})}
+        
       }
-      let isFree = false
-      if (value[FREE_INDEX]) {
-        isFree = true
-      }
-      return (
-        <motion.li
-          key={value[TITLE_INDEX]}
-          className={`py-1 tall:py-1 tall:md:py-5  px-5 tall:text-xl tall:md:text-2xl max-h-24  font-bold flex place-items-center bg-lime-600 border ${
-            isFree ? "border-4 border-orange-600" : "border-black"
-          }`}
-          variants={itemVariants}
-          initial={"hidden"}
-          animate={"shown"}
-          exit={"exit"}
-        >
-          {value[TITLE_INDEX]}
-        </motion.li>
-      )
     }
+    setFilteredGames(list);
   }
   const listVariants = {
     hidden: { opacity: 0, y: "100vh" },
@@ -67,7 +93,6 @@ export default function Multiplayer() {
       opacity: 1,
       y: 0,
       transition: {
-        when: "beforeChildren",
         delay: 1,
         duration: 1,
         ease: "easeOut",
@@ -80,17 +105,28 @@ export default function Multiplayer() {
     },
   }
   const itemVariants = {
-    hidden: { y:"100vh" },
-    shown: (i)=>( {
+    hidden: { y: "5000" },
+    shown: i => ({
       x: 0,
-      y:0,
+      y: 0,
+      scaleY:1,
       opacity: 1,
-      transition: { type: "spring", delay:0.04*i ,duration: 0.5, bounce: 0.2, ease: "easeIn" },
+      transition: {
+        type: "spring",
+        duration: 0.3,
+        bounce: 0.2,
+        ease: "easeOut",
+      },
     }),
     exit: {
-      x: "50vw",
-      opacity:0,
-      transition: { type: "spring", duration: 0.5, bounce: 0.3, ease: "easeOut" },
+      scaleY:0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        duration: 1,
+        bounce: 0.3,
+        ease: "easeOut",
+      },
     },
   }
 
@@ -109,7 +145,6 @@ export default function Multiplayer() {
 
         {true && (
           <motion.ul
-          
             id="gameListUl"
             className="mt-2 pr-1 p-1 grow auto-rows-[1fr] auto-cols-[1fr] col-spa-4 grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-1 bg-black/90"
             key="ul"
@@ -117,8 +152,10 @@ export default function Multiplayer() {
             initial={"shown"}
             animate={"shown"}
             exit={"exit"}
-          ><AnimatePresence mode="popLayout">
-            {games.map(( games, i )=> generateGameList(games, filter,i))}</AnimatePresence>
+          >
+            <AnimatePresence mode="popLayout">
+              {filteredGames.map((game, i) => renderGameList(game, i))}
+            </AnimatePresence>
           </motion.ul>
         )}
       </div>
