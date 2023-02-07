@@ -65,15 +65,15 @@ export function Head() {
       <title>Jon Hudak Web Development</title>
       <meta
         name="description"
-        content="Get peace of mind with a site made the right way, with a focus on user experience, accessibility, and SEO."
+        content="Attract more customers with a custom-made website"
       />
       <meta
         name="keywords"
-        content="Website, Custom, Portfolio, Site, Build, Create, React, Gatsby,Wordpress, Wix, HTML, CSS, JavaScript "
+        content="Website, Custom, Portfolio, Site, Build, Create, React, Gatsby, Wordpress, Wix, HTML, CSS, JavaScript "
       />
       <meta name="author" content="Jon Hudak" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <meta property="og:title" content="Get more customers with a custom-made website!" />
+      <meta property="og:title" content="Jon Hudak Web Development" />
       <meta property="og:image" content={`https://jonhudak.dev/${ogImg}`} />
     </>
   )
