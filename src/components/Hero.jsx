@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import heroPic from "../images/glitchLarge.webm"
 import ContactSec from "./ContactSec"
 import { AnimatePresence, motion, useInView } from "framer-motion"
