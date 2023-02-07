@@ -16,10 +16,10 @@ export default function Home() {
     open: false,
     node: "",
   })
-  console.log(testimodal.open)
+  
 
   useEffect(() => {
-    console.log(activeSection)
+    
   }, [activeSection])
 
   return (

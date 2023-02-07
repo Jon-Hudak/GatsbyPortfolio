@@ -130,7 +130,7 @@ function Hero() {
             </div>
 
             <motion.video
-              className="imgShadow-sm lg:absolute lg:bottom-0 lg:-right-24 lg:w-[30rem] lg:rounded-none lg:border-none lg:shadow-none z-10 w-48 object-cover object-top rounded-full shrink-0 border-2 border-accent-blue shadow-xl pointer-none"
+              className="imgShadow-sm lg:absolute lg:bottom-0 lg:-right-24 lg:w-[30rem] lg:rounded-none lg:border-none lg:shadow-none z-10 w-48 object-cover object-top rounded-full shrink-0 border-2 border-accent-blue shadow-xl cursor-grab"
               autoPlay
               loop
               muted
@@ -143,7 +143,7 @@ function Hero() {
               initial={["hidden", { x: 100 }]}
               animate={"shown"}
               whileTap={"drag"}
-              tapCancel={"dragEnd"}
+              
             >
               <source src={heroPic} type="video/webm" />
             </motion.video>
