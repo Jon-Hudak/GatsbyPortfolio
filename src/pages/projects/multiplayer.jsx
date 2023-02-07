@@ -4,6 +4,7 @@ import Layout from "../../components/Layout.jsx"
 import ButtonContainer from "../../components/multiplayerApp/ButtonContainer.jsx"
 import getGoogleSheet from "../../components/multiplayerApp/getGoogleSheet.jsx"
 import getPlayers from "../../components/multiplayerApp/getPlayers.jsx"
+import ogImg from "../../content/projects/Multiplayer.jpg"
 
 const FREE_INDEX = 1
 //const RACE_INDEX = 2
@@ -163,3 +164,30 @@ export default function Multiplayer() {
     </Layout>
   )
 }
+
+export function Head() {
+  return (
+    <>
+      <title>Multiplayer List</title>
+      <meta
+        name="description"
+        content="List to show games amongst friends."
+      />
+      <meta
+        name="keywords"
+        content="Games, Video games, HTML, CSS, JavaScript, Coding, Webapps, Apps, Programmer, Web Developer, Development"
+      />
+      <meta name="author" content="Jon Hudak" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta property="og:title" content="Multiplayer List" />
+      <meta property="og:image" content={`https://jonhudak.dev${ogImg}`} />
+      <meta property="og:title" content="Multiplayer Games Viewer" />
+      <meta property="og:url" content="https://jonhudak.dev/projects/multiplayer" />
+      <meta property="og:type" content="webapp" />
+      <meta property="og:description" content="List to show games amongst friends." />
+
+
+    </>
+  )
+}
+
