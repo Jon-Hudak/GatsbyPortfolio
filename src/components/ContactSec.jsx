@@ -14,7 +14,7 @@ export default function ContactSec({ popup }) {
     message: "",
     nameValid: "",
     emailValid: "",
-    formErrors: { name: "", email: "" },
+    formErrors: { name: " ", email: " " },
     formStyle:{ name:"inputField", email:"inputField" },
     formValid: false,
   })
@@ -51,7 +51,7 @@ export default function ContactSec({ popup }) {
     switch (field) {
       case "name":
         nameValid = value.length > 0;
-        errors.name = nameValid ? "" : "Please enter a name";
+        errors.name = nameValid ? " " : "Please enter a name";
         styles.name = nameValid ? "inputField outline-green-500"
         : "inputField outline-red-600";
 
@@ -59,7 +59,7 @@ export default function ContactSec({ popup }) {
       case "email":
         emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
         emailValid = !!emailValid;
-        errors.email = emailValid ? "" : "Please enter a valid email";
+        errors.email = emailValid ? " " : "Please enter a valid email";
         styles.email = emailValid ? "inputField outline-green-500"
         : "inputField outline-red-600"
         break
@@ -123,6 +123,7 @@ export default function ContactSec({ popup }) {
             value={formState.name}
             placeholder="Name"
           />
+          <p className="text-red-500 text-sm mt-2 h-3">{formState.formErrors.name}</p>
         </label>
 
         <label className="formLabel">
@@ -139,7 +140,9 @@ export default function ContactSec({ popup }) {
           onChange={handleChange}
           value={formState.email}
           placeholder="Email"
-        /></label>
+        />
+        <p className="text-red-500 text-sm mt-2 h-3">{formState.formErrors.email}</p>
+        </label>
         
         <label className="formLabel">
           Message:
