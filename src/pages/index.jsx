@@ -69,7 +69,7 @@ export function Head() {
       />
       <meta
         name="keywords"
-        content="Website, Custom, Portfolio, Site, Build, Create, React, Gatsby, Wordpress, Wix, HTML, CSS, JavaScript "
+        content="Website, Custom, Portfolio, Site, Build, Create, React, Gatsby, Wordpress, Wix, HTML, CSS, JavaScript, Coding, Webapps, Apps, Programmer, Web Developer, Development"
       />
       <meta name="author" content="Jon Hudak" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
