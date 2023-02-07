@@ -169,6 +169,7 @@ export default function ContactSec({ popup }) {
           Submit
         </button>
       </form>
+      <p className="text-center text-lg">or email me at <a className="text-white hover:underline" href="mailto:jon@jonhudak.dev">jon@jonhudak.dev</a></p>
     </motion.section>
   )
 }
