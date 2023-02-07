@@ -1,12 +1,12 @@
-import { motion, useInView } from "framer-motion"
+import { motion } from "framer-motion"
 import React from "react"
 import { useRef } from "react"
 import { ReactSVG } from "react-svg"
-import { TypeAnimation } from "react-type-animation"
 
-function InfoCard({ title, children, icon, typeCursor, index }) {
+
+function InfoCard({ title, children, icon}) {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true })
+
 
   return (
     <motion.div

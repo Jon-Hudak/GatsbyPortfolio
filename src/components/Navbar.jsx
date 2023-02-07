@@ -1,6 +1,5 @@
 import { Link } from "gatsby"
 import React, { useState } from "react"
-import { StaticImage } from "gatsby-plugin-image"
 import { AnchorLink } from "gatsby-plugin-anchor-links"
 import { AnimatePresence, motion } from "framer-motion"
 import HamburgerMenu from "./HamburgerMenu"

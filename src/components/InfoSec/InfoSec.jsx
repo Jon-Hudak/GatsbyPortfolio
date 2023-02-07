@@ -3,7 +3,6 @@ import InfoCard from "./InfoCard"
 import lightbulbSVG from "../../images/lightbulb.svg"
 import magnifySVG from "../../images/magnifyingGlass.svg"
 import phoneSVG from "../../images/phone.svg"
-import { motion } from "framer-motion"
 
 function InfoSec() {
   const items = [

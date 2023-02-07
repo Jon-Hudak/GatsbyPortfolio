@@ -1,12 +1,11 @@
-import { motion, useInView } from "framer-motion"
+import { motion} from "framer-motion"
 import React from "react"
 import { useRef } from "react"
 import { useState } from "react"
-import { TypeAnimation } from "react-type-animation"
 
 export default function ContactSec({ popup }) {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true })
+  //const isInView = useInView(ref, { once: true })
   const [formState, setFormState] = useState({
     name: "",
     email: "",
@@ -16,6 +15,7 @@ export default function ContactSec({ popup }) {
     nameValid: "",
     emailValid: "",
     formErrors: { name: "", email: "" },
+    formStyle:{ name:"inputField", email:"inputField" },
     formValid: false,
   })
 
@@ -27,16 +27,6 @@ export default function ContactSec({ popup }) {
   }
   const handleSubmit = e => {
     formValidation()
-    // if (nameValid && emailValid){
-    //   fetch("/", {
-    //     method: "POST",
-    //     headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    //     body: encode({ "form-name": "contact", ...formState })
-    //   })
-    //     .then(() => alert("Success!"))
-    //     .catch(error => alert(error));
-
-    // }
     e.preventDefault()
   }
 
@@ -49,23 +39,29 @@ export default function ContactSec({ popup }) {
     setFormState({ ...formState, formValid: formValid })
   }
   const fieldValidation = e => {
-    const field = e.target.name
-    const value = e.target.value
-    const errors = formState.formErrors
-    let nameValid = formState.nameValid
-    let emailValid = formState.emailValid
-    let phoneValid = formState.phoneValid
-    let companyValid = formState.companyValid
+    const field = e.target.name;
+    const value = e.target.value;
+    const errors = formState.formErrors;
+    const styles = formState.formStyle;
+    let nameValid = formState.nameValid;
+    let emailValid = formState.emailValid;
+    let phoneValid = formState.phoneValid;
+    let companyValid = formState.companyValid;
 
     switch (field) {
       case "name":
-        nameValid = value.length > 0
-        errors.name = nameValid ? "" : "Please enter a name"
+        nameValid = value.length > 0;
+        errors.name = nameValid ? "" : "Please enter a name";
+        styles.name = nameValid ? "inputField outline-green-500"
+        : "inputField outline-red-600";
+
         break
       case "email":
-        emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)
-        emailValid = !!emailValid
-        errors.email = emailValid ? "" : "Please enter a valid email"
+        emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
+        emailValid = !!emailValid;
+        errors.email = emailValid ? "" : "Please enter a valid email";
+        styles.email = emailValid ? "inputField outline-green-500"
+        : "inputField outline-red-600"
         break
       case "phone":
         phoneValid = value.match(/^[(]?\d{3}[)]?[-]?\d{3}[-]?\d{4}$/)
@@ -85,6 +81,7 @@ export default function ContactSec({ popup }) {
       phoneValid: phoneValid,
       companyValid: companyValid,
       formErrors: errors,
+      formStyle: styles,
     })
   }
 
@@ -119,9 +116,7 @@ export default function ContactSec({ popup }) {
             name="name"
             type="text"
             className={
-              formState.nameValid
-                ? "inputField outline-green-500"
-                : "inputField outline-red-600"
+              formState.formStyle.name
             }
             onBlur={fieldValidation}
             onChange={handleChange}
@@ -138,9 +133,7 @@ export default function ContactSec({ popup }) {
           name="email"
           type="email"
           className={
-            formState.emailValid
-              ? "inputField outline-green-500"
-              : "inputField outline-red-600"
+            formState.formStyle.email
           }
           onBlur={fieldValidation}
           onChange={handleChange}
