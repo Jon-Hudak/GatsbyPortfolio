@@ -14,7 +14,7 @@ export default function ContactSec({ popup }) {
     message: "",
     nameValid: "",
     emailValid: "",
-    formErrors: { name: " ", email: " " },
+    formErrors: { name: "", email: "" },
     formStyle: { name: "inputField", email: "inputField" },
     formValid: false,
   })
@@ -26,7 +26,7 @@ export default function ContactSec({ popup }) {
     })
   }
   const handleSubmit = e => {
-    formValidation()
+    if (!formValid) 
     e.preventDefault()
   }
 
@@ -106,10 +106,13 @@ export default function ContactSec({ popup }) {
       <form
         name="Contact"
         className="flex flex-col w-full md:px-10 my-5"
-        method="post"
+        method="POST"
+        data-netlify="true"
         onSubmit={handleSubmit}
         netlify
+        data-netlify-honeypot="bot-field"
       >
+        <input name="bot-field" className="hidden"></input>
         <input type="hidden" name="form-name" value="Contact" />
         <label className="formLabel">
           Name:
@@ -133,6 +136,7 @@ export default function ContactSec({ popup }) {
         <label className="formLabel">
           Email:
           <input
+            
             aria-required
             aria-invalid={formState.emailValid}
             id="email"
