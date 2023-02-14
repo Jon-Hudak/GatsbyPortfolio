@@ -27,13 +27,14 @@ export default function ContactSec({ popup }) {
     })
   }
   const handleSubmit = e => {
-    if (formState.formValid) return
+    formValidation();
+    if (formState.formValid) {return}
     e.preventDefault()
   }
 
   const formValidation = () => {
     let formValid = false
-    console.log(formState.formValid)
+   
     if (formState.nameValid && formState.emailValid) {
       formValid = true
     }
