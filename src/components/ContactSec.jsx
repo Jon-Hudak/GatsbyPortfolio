@@ -17,6 +17,7 @@ export default function ContactSec({ popup }) {
     formErrors: { name: "", email: "" },
     formStyle: { name: "inputField", email: "inputField" },
     formValid: false,
+    formSubmitted: false,
   })
 
   const handleChange = e => {
@@ -26,7 +27,7 @@ export default function ContactSec({ popup }) {
     })
   }
   const handleSubmit = e => {
-    if (!formValid) 
+    if (formState.formValid) return
     e.preventDefault()
   }
 
