@@ -46,10 +46,49 @@
   }
 }
 
+/* colorfilltest */
+.mask-container {
+  position: relative;
+}
+
+img {
+  position: absolute;
+  height: 800px;
+}
+
+.sketchImg {
+  -webkit-mask-image: url("../images/tattootestmask.png");
+  -webkit-mask-size: cover;
+  -webkit-mask-position: 0% 0%;
+  
+}
+
+.sketchImg:hover {
+  -webkit-mask-position: 100% 0%;
+}
+
+.mask-animation{
+  animation: 
+    addColor 1000ms steps(19) forwards;
+}
+@keyframes addColor {
+  0% {
+    -webkit-mask-position: 0% 0%;
+    mask-position: 0% 0%;
+  }
+
+  100% {
+    -webkit-mask-position: 100% 0%;
+    mask-position: 100% 0%;
+  }
+}
+
+/* colorfilltest */
+
 @tailwind utilities;
 
 @layer components {
-  html{
+  html {
     @apply bg-black;
   }
   .inputField {
@@ -87,38 +126,29 @@
   .quotebox :first-child {
     @apply mt-0;
   }
-  #hamburgerLinks a{
-    @apply block py-10 px-5 hover:bg-gray-800  text-5xl font-sans font-thin text-right w-full h-full
+  #hamburgerLinks a {
+    @apply block py-10 px-5 hover:bg-gray-800  text-5xl font-sans font-thin text-right w-full h-full;
   }
-  .imgShadow{
-    -webkit-filter: drop-shadow(1px 1px 0px 1px #43B0FF);
-                  
-  filter: drop-shadow(1px 2px 15px #43B0FF); 
-           
+  .imgShadow {
+    -webkit-filter: drop-shadow(1px 1px 0px 1px #43b0ff);
+
+    filter: drop-shadow(1px 2px 15px #43b0ff);
   }
-  .imgShadow-none{
+  .imgShadow-none {
     -webkit-filter: drop-shadow(0px 0px 0);
-                  
-  filter: drop-shadow(px 0px 0) ;
-           
+
+    filter: drop-shadow(px 0px 0);
   }
 
-  .imgShadow-sm
-    {
-      -webkit-filter: drop-shadow(1px 1px 1px  #43B0FF);
-                    
-    filter: drop-shadow(0px 0px 4px #43B0FF); 
-             
-    }
-    .svg-shadow
-    {
-      
-      -webkit-filter: drop-shadow(1px 1px 1px  black);          
-    filter: drop-shadow(-1px 2px 3px  black); 
-             
-    }
-  
-  
+  .imgShadow-sm {
+    -webkit-filter: drop-shadow(1px 1px 1px #43b0ff);
+
+    filter: drop-shadow(0px 0px 4px #43b0ff);
+  }
+  .svg-shadow {
+    -webkit-filter: drop-shadow(1px 1px 1px black);
+    filter: drop-shadow(-1px 2px 3px black);
+  }
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Aldrich&display=swap");
