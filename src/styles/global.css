@@ -51,7 +51,7 @@
   position: relative;
 }
 
-img {
+.colorFillImg {
   position: absolute;
   height: 800px;
 }

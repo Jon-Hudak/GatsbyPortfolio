@@ -31,8 +31,9 @@ export default function ColorFill() {
     <Layout>
       <button className="reset-animation mt-10 bg-accent-blue p-5" onClick={handleClick}>Reset</button>
       <div className="mask-container">
-        <img className="colorImg" src={color} alt="" />
-        <img id="sketchImg"className="sketchImg mask-animatio" src={sketch} alt="" />
+        <img id="sketchImg"className="sketchImg colorFillImg z-10" src={sketch} alt="" />
+        <img className="colorImg colorFillImg" src={color} alt="" />
+        
       </div>
     </Layout>
   )

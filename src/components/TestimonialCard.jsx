@@ -51,7 +51,7 @@ function TestimonialCard({ node, testimodal, setTestimodal, index }) {
         >
           <motion.img
             alt=""
-            className="inline h-10 md:h-24 w-10 md:w-24"
+            className="block h-10 md:h-24 w-10 md:w-24"
             src={quotationSVG}
             variants={flippedVariants}
             

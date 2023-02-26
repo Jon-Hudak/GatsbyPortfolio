@@ -76,7 +76,7 @@ module.exports = {
       options: {
         printRejected: true, // Print removed selectors and processed file names
         tailwind: true, 
-        develop: true, // Enable while using `gatsby develop`
+        develop: false, // Enable while using `gatsby develop`
       },
     },
     // {
