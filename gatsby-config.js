@@ -26,7 +26,7 @@ module.exports = {
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     "gatsby-plugin-anchor-links",
-   
+
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -64,13 +64,21 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-react-svg',
+      resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
-          include: /.inline.svg/
-        }
-      }
-    }
+          include: /.inline.svg/,
+        },
+      },
+    },
+    {
+      resolve: `gatsby-plugin-purgecss`,
+      options: {
+        printRejected: true, // Print removed selectors and processed file names
+        tailwind: true, 
+        develop: true, // Enable while using `gatsby develop`
+      },
+    },
     // {
     //   resolve: "gatsby-plugin-mdx",
     //   options: {
