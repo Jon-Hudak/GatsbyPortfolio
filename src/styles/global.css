@@ -57,14 +57,14 @@
 }
 
 .sketchImg {
+  
+  
+  mask-image: url("../images/tattootestmask.png");
+ 
+  mask-size: cover;
   -webkit-mask-image: url("../images/tattootestmask.png");
   -webkit-mask-size: cover;
-  -webkit-mask-position: 0% 0%;
-  
-}
-
-.sketchImg:hover {
-  -webkit-mask-position: 100% 0%;
+ 
 }
 
 .mask-animation{
